@@ -1,79 +1,105 @@
+// ignore_for_file: use_build_context_synchronously, prefer_const_constructors_in_immutables, avoid_print, file_names
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:isef_project/views/login.dart';
+import 'package:isef_project/views/more.dart';
+import 'package:isef_project/widgets/custom_button.dart';
+import 'package:isef_project/widgets/custom_formtextfield.dart';
+import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-bool showpassword = true;
-TextEditingController emailcontrollor = TextEditingController();
-TextEditingController passwordcontrollor = TextEditingController();
-TextEditingController namecontrollor = TextEditingController();
-TextEditingController agecontrollor = TextEditingController();
-var formKey = GlobalKey<FormState>();
+class RegisterPage extends StatefulWidget {
+  RegisterPage({super.key});
 
-class Registar extends StatefulWidget {
-  const Registar({super.key});
+  static String id = 'RegisterPage';
 
   @override
-  State<Registar> createState() => _RegistarState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegistarState extends State<Registar> {
+class _RegisterPageState extends State<RegisterPage> {
+  String? email;
+  String? password;
+  String? age;
+  String? name;
+  bool isLoading = false;
+
+  GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.teal,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Form(
             key: formKey,
-            child: Column(
+            child: ListView(
               children: [
-                const Text(
-                  "Register",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Register',
+                      style: TextStyle(
+                          fontSize: 32,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                /////////////////////////////////////////////////
-                //                    name
-
-                CustomTextFromField(
-                    controller: namecontrollor,
-                    fieldText: "Name",
-                    icon: Icons.person),
-
-                SizedBox(
-                  height: 25,
-                ),
-                /////////////////////////////////////////////////////
-                //                  Age
-                CustomTextFromField(
-                    controller: agecontrollor,
-                    fieldText: "Age",
-                    icon: Icons.numbers),
                 const SizedBox(
                   height: 25,
                 ),
-
-                /////////////////////////////////////////
-                ///                  Email
                 CustomTextFromField(
-                    controller: emailcontrollor,
-                    fieldText: "Email",
-                    icon: Icons.email),
-                const SizedBox(
-                  height: 25,
+                  fieldText: "Name",
+                  icon: Icons.face,
+                  onChange: (dataN) {
+                    name = dataN;
+                  },
                 ),
-
-                /////////////////////////////////////////
-                ///               password
+                const SizedBox(
+                  height: 30,
+                ),
+                CustomTextFromField(
+                  fieldText: "Age",
+                  icon: Icons.numbers,
+                  onChange: (dataA) {
+                    age = dataA;
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                CustomTextFromField(
+                  fieldText: "Email",
+                  icon: Icons.email,
+                  onChange: (dataE) {
+                    email = dataE;
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
                 TextFormField(
-                  controller: passwordcontrollor,
+                  onChanged: (dataP) {
+                    password = dataP;
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "password must not be empty";
@@ -101,23 +127,33 @@ class _RegistarState extends State<Registar> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: MaterialButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {}
-                    },
-                    child: const Text(
-                      "Register",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                CustomButton(
+                  onTap: () async {
+                    if (formKey.currentState!.validate()) {
+                      isLoading = true;
+                      setState(() {});
+                      try {
+                        await registerUserAccount();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MoreScreen()));
+                      } on FirebaseAuthException catch (ex) {
+                        if (ex.code == 'weak-password') {
+                          showSnackBar(
+                              context, 'The password provided is too weak.');
+                        } else if (ex.code == 'email-already-in-use') {
+                          showSnackBar(context,
+                              'The account already exists for that email , try again');
+                        }
+                      } catch (ex) {
+                        print(ex);
+                      }
+                      isLoading = false;
+                      setState(() {});
+                    } else {}
+                  },
+                  text: 'Register',
                 ),
                 const SizedBox(
                   height: 25,
@@ -125,14 +161,25 @@ class _RegistarState extends State<Registar> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Already have an accont?'),
-                    TextButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const Login();
+                        }));
+                      },
+                      child: const Text(
+                        'Already have an account ?  ',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       child: const Text(
-                        "Login",
-                        style: TextStyle(),
+                        'Login',
+                        style: TextStyle(color: Colors.blue),
                       ),
                     ),
                   ],
@@ -143,5 +190,11 @@ class _RegistarState extends State<Registar> {
         ),
       ),
     );
+  }
+
+  Future<void> registerUserAccount() async {
+    UserCredential user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email!, password: password!);
+    print(user.user!.displayName);
   }
 }
