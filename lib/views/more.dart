@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/quiz_screen.dart';
+import 'package:isef_project/views/quiz_screen_phase_one.dart';
 
 // import 'MoreAbtDev.dart';
 
@@ -33,7 +33,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => QuizScreen(),
+                      builder: (context) => QuizScreenPhaseOne(),
                     ),
                   );
                 },
@@ -60,7 +60,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => QuizScreen(),
+                      builder: (context) => QuizScreenPhaseOne(),
                     ),
                   );
                 },
