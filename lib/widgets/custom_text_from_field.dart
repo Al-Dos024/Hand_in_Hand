@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFromField extends StatelessWidget {
-  CustomTextFromField(
+  const CustomTextFromField(
       {super.key,
       required this.fieldText,
       required this.icon,
@@ -10,12 +10,12 @@ class CustomTextFromField extends StatelessWidget {
 
   final String fieldText;
   final IconData icon;
-  bool? obscureText;
-  Function(String)? onChange;
+  final bool obscureText;
+  final Function(String)? onChange;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: obscureText!,
+      obscureText: obscureText,
       validator: (value) {
         if (value!.isEmpty) {
           return "$fieldText must not be empty";

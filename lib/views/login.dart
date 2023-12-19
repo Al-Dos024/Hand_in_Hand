@@ -1,15 +1,13 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/views/onBoarding.dart';
 import 'package:isef_project/views/registar.dart';
-import 'package:isef_project/widgets/custom_formtextfield.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn_platform_interface.dart';
 
 bool showpassword = true;
 TextEditingController emailcontrollor = TextEditingController();

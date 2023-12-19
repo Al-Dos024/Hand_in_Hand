@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:isef_project/views/login.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/custom_button.dart';
-import 'package:isef_project/widgets/custom_formtextfield.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

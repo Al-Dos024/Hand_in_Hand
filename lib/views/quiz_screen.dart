@@ -4,6 +4,8 @@ import 'package:isef_project/views/more.dart';
 import '../models/quiz_model.dart';
 
 class QuizScreen extends StatefulWidget {
+  const QuizScreen({super.key});
+
   @override
   State<QuizScreen> createState() => _QuizScreenState();
 }
@@ -12,7 +14,10 @@ class _QuizScreenState extends State<QuizScreen> {
   //define the datas
   List<Question> questionList = getQuestions();
   int currentQuestionIndex = 0;
-  int score = 0;
+  int mScore = 0;
+  int iScore = 0;
+  int dScore = 0;
+  int tScore = 0;
   Answer? selectedAnswer;
 
   @override
@@ -92,20 +97,28 @@ class _QuizScreenState extends State<QuizScreen> {
       margin: const EdgeInsets.symmetric(vertical: 8),
       height: 48,
       child: ElevatedButton(
-        child: Text(answer.answerText),
         style: ElevatedButton.styleFrom(
+          foregroundColor: isSelected ? Colors.white : Colors.black,
+          backgroundColor: isSelected ? Colors.teal : Colors.white,
           shape: const StadiumBorder(),
-          primary: isSelected ? Colors.teal : Colors.white,
-          onPrimary: isSelected ? Colors.white : Colors.black,
         ),
         onPressed: () {
           if (selectedAnswer == null) {
             setState(() {
-              selectedAnswer = answer;
-              score = score + answer.isCorrect;
+              if (currentQuestionIndex < 14) {
+                selectedAnswer = answer;
+                mScore = mScore + answer.isCorrect;
+              } else if (currentQuestionIndex < 24) {
+                selectedAnswer = answer;
+                iScore = iScore + answer.isCorrect;
+              } else {
+                selectedAnswer = answer;
+                dScore = dScore + answer.isCorrect;
+              }
             });
           }
         },
+        child: Text(answer.answerText),
       ),
     );
   }
@@ -116,15 +129,14 @@ class _QuizScreenState extends State<QuizScreen> {
       isLastQuestion = true;
     }
 
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.5,
       height: 48,
       child: ElevatedButton(
-        child: Text(isLastQuestion ? "Submit" : "Next"),
         style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blueAccent,
           shape: const StadiumBorder(),
-          primary: Colors.blueAccent,
-          onPrimary: Colors.white,
         ),
         onPressed: () {
           if (isLastQuestion) {
@@ -139,36 +151,58 @@ class _QuizScreenState extends State<QuizScreen> {
             });
           }
         },
+        child: Text(isLastQuestion ? "Submit" : "Next"),
       ),
     );
   }
 
   _showScoreDialog() {
     bool isPassed = false;
-
-    if (score >= questionList.length * 0.6) {
-      //pass if 60 %
+    if (tScore >= questionList.length * 0.6) {
       isPassed = true;
     }
-    String title = isPassed ? "Passed " : "Failed";
+    //String title = isPassed ? "Passed " : "Failed";
 
     return AlertDialog(
       title: Text(
-        title + " | Score is $score",
+        "Score is $tScore ",
         style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
       ),
-      content: ElevatedButton(
-        child: const Text("Return to phases"),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MoreScreen()));
-          setState(() {
-            currentQuestionIndex = 0;
-            score = 0;
-            selectedAnswer = null;
-          });
-        },
-      ),
+      content: const Text('You have passed the phase one'),
+      actions: [
+        Column(
+          children: [
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MoreScreen()));
+
+                  setState(() {
+                    currentQuestionIndex = 0;
+                    tScore = 0;
+                    selectedAnswer = null;
+                  });
+                },
+                child: const Text("Return to phases")),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MoreScreen()));
+
+                  setState(() {
+                    currentQuestionIndex = 0;
+                    tScore = 0;
+                    selectedAnswer = null;
+                  });
+                },
+                child: const Text("Go To phase 2?")),
+          ],
+        )
+      ],
     );
   }
 }

@@ -38,13 +38,13 @@ class _MoreScreenState extends State<MoreScreen> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.red,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12), // <-- Radius
                   ),
                 ),
                 child: const Text(
-                  'Phase One?',
+                  'Under 18?',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
@@ -71,34 +71,7 @@ class _MoreScreenState extends State<MoreScreen> {
                   ),
                 ),
                 child: const Text(
-                  'Phase two?',
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(22.0),
-            child: Container(
-              margin: const EdgeInsets.all(10),
-              height: 180,
-              width: 360,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => QuizScreen(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
-                ),
-                child: const Text(
-                  'Phase three?',
+                  'Above 18?',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
