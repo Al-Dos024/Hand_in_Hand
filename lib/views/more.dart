@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/quiz_screen_phase_one.dart';
-
-// import 'MoreAbtDev.dart';
+import 'package:isef_project/widgets/big_custom_button.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -23,59 +22,27 @@ class _MoreScreenState extends State<MoreScreen> {
       body: SafeArea(
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Padding(
-            padding: const EdgeInsets.all(22.0),
-            child: Container(
-              margin: const EdgeInsets.all(10),
-              height: 180,
-              width: 360,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => QuizScreenPhaseOne(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
+          BigCustomButton(
+            buttonName: 'Under 18?',
+            color: Colors.red,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const QuizScreenPhaseOne(),
                 ),
-                child: const Text(
-                  'Under 18?',
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-            ),
+              );
+            },
           ),
-          Padding(
-            padding: const EdgeInsets.all(22.0),
-            child: Container(
-              margin: const EdgeInsets.all(10),
-              height: 180,
-              width: 380,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => QuizScreenPhaseOne(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // <-- Radius
-                  ),
+          BigCustomButton(
+            buttonName: 'Above 18?',
+            color: Colors.blue,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const QuizScreenPhaseOne(),
                 ),
-                child: const Text(
-                  'Above 18?',
-                  style: TextStyle(fontSize: 25),
-                ),
-              ),
-            ),
+              );
+            },
           ),
         ]),
       ),

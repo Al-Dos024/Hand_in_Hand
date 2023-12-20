@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/more.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
+import 'package:isef_project/views/more.dart';
 import 'package:isef_project/views/quiz_screen_phase_two.dart';
 
 import '../models/quiz_model.dart';
@@ -67,12 +67,15 @@ class _QuizScreenPhaseOneState extends State<QuizScreenPhaseOne> {
             color: Colors.orangeAccent,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Text(
-            questionList[currentQuestionIndex].questionText,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+          child: Center(
+            child: Text(
+              questionList[currentQuestionIndex].questionText,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         )
@@ -179,7 +182,7 @@ class _QuizScreenPhaseOneState extends State<QuizScreenPhaseOne> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const QuizScreenPhaseTwo()));
+                          builder: (context) => const MoreScreen()));
 
                   setState(() {
                     currentQuestionIndex = 0;
@@ -193,7 +196,7 @@ class _QuizScreenPhaseOneState extends State<QuizScreenPhaseOne> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MoreScreen()));
+                          builder: (context) => const QuizScreenPhaseTwo()));
 
                   setState(() {
                     currentQuestionIndex = 0;

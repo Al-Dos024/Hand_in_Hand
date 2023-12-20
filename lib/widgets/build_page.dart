@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/constants.dart';
 
 Widget buildPage({
   required Color color,
@@ -21,10 +22,8 @@ Widget buildPage({
           ),
           Text(
             title,
-            style: TextStyle(
-                color: Colors.teal.shade700,
-                fontSize: 32,
-                fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: kPrimryColor, fontSize: 32, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 24,

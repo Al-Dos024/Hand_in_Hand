@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, file_names
 
 import 'package:flutter/material.dart';
+import 'package:isef_project/constants.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({super.key, required this.text, this.onTap});
@@ -12,7 +13,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: kPrimryColor,
           borderRadius: BorderRadius.circular(25),
         ),
         width: double.infinity,
@@ -20,7 +21,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
             child: Text(
           text,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         )),
       ),
     );

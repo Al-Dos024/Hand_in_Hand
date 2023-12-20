@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:isef_project/constants.dart';
 import 'package:isef_project/views/login.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/custom_button.dart';
@@ -33,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
       inAsyncCall: isLoading,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.teal,
+          backgroundColor: kPrimryColor,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),

@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:isef_project/constants.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/views/onBoarding.dart';
 import 'package:isef_project/views/registar.dart';
@@ -32,7 +33,7 @@ class _LoginState extends State<Login> {
       inAsyncCall: isLoading,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.teal,
+          backgroundColor: kPrimryColor,
           leading: IconButton(
             onPressed: () async {
               Navigator.of(context).pushReplacement(
@@ -112,7 +113,7 @@ class _LoginState extends State<Login> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colors.teal,
+                      color: kPrimryColor,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: MaterialButton(
@@ -122,6 +123,8 @@ class _LoginState extends State<Login> {
                           setState(() {});
                           try {
                             await loginUserAccount();
+                            isLoading = false;
+                            setState(() {});
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

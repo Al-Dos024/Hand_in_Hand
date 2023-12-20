@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/models/get_quiz_phase_two.dart';
 import 'package:isef_project/views/more.dart';
-import 'package:isef_project/models/get_quiz_phase_one.dart';
 
 import '../models/quiz_model.dart';
 
@@ -13,12 +13,10 @@ class QuizScreenPhaseTwo extends StatefulWidget {
 
 class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
   //define the datas
-  List<Question> questionList = getQuestionsPhaseOne();
+  List<Question> questionList = getQuestionsPhaseTwo();
   int currentQuestionIndex = 0;
-  int mScore = 0;
-  int iScore = 0;
-  int dScore = 0;
-  int tScore = 0;
+
+  int score = 0;
   Answer? selectedAnswer;
 
   @override
@@ -30,7 +28,7 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           const Text(
-            "Phase One",
+            "Phase Two",
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -66,12 +64,15 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
             color: Colors.orangeAccent,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Text(
-            questionList[currentQuestionIndex].questionText,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+          child: Center(
+            child: Text(
+              questionList[currentQuestionIndex].questionText,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         )
@@ -106,16 +107,8 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
         onPressed: () {
           if (selectedAnswer == null) {
             setState(() {
-              if (currentQuestionIndex < 14) {
-                selectedAnswer = answer;
-                mScore = mScore + answer.isCorrect;
-              } else if (currentQuestionIndex < 24) {
-                selectedAnswer = answer;
-                iScore = iScore + answer.isCorrect;
-              } else {
-                selectedAnswer = answer;
-                dScore = dScore + answer.isCorrect;
-              }
+              selectedAnswer = answer;
+              score = score + answer.isCorrect;
             });
           }
         },
@@ -159,14 +152,14 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
 
   _showScoreDialog() {
     bool isPassed = false;
-    if (tScore >= questionList.length * 0.6) {
+    if (score >= questionList.length * 0.6) {
       isPassed = true;
     }
     //String title = isPassed ? "Passed " : "Failed";
 
     return AlertDialog(
       title: Text(
-        "Score is $tScore ",
+        "Score is $score ",
         style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
       ),
       content: const Text('You have passed the phase one'),
@@ -182,7 +175,7 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
 
                   setState(() {
                     currentQuestionIndex = 0;
-                    tScore = 0;
+                    score = 0;
                     selectedAnswer = null;
                   });
                 },
@@ -196,7 +189,7 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
 
                   setState(() {
                     currentQuestionIndex = 0;
-                    tScore = 0;
+                    score = 0;
                     selectedAnswer = null;
                   });
                 },
