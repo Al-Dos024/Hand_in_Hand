@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isef_project/models/get_quiz_phase_two_children.dart.dart';
+import 'package:isef_project/models/get_quiz_phase_two_children.dart';
 import 'package:isef_project/views/more.dart';
 
 import '../models/quiz_model.dart';
