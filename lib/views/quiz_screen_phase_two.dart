@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isef_project/models/get_quiz_phase_two.dart';
+import 'package:isef_project/models/get_quiz_phase_two_children.dart.dart';
 import 'package:isef_project/views/more.dart';
 
 import '../models/quiz_model.dart';
@@ -13,7 +13,7 @@ class QuizScreenPhaseTwo extends StatefulWidget {
 
 class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
   //define the datas
-  List<Question> questionList = getQuestionsPhaseTwo();
+  List<Question> questionList = getQuestionsPhaseTwoChild();
   int currentQuestionIndex = 0;
 
   int score = 0;

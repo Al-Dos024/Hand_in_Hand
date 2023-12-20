@@ -2,7 +2,7 @@
 
 import 'package:isef_project/models/quiz_model.dart';
 
-List<Question> getQuestionsPhaseTwo() {
+List<Question> getQuestionsPhaseTwoChild() {
   List<Question> list = [];
 
   list.add(Question(
