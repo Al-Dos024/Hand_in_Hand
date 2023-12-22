@@ -1,6 +1,6 @@
 import 'package:isef_project/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/quiz_screen_phase_two.dart';
+import 'package:isef_project/views/under%2018/quiz_screen_phase_two_child.dart';
 import 'package:isef_project/widgets/custom_button.dart';
 
 class BMIScreen extends StatefulWidget {
@@ -174,7 +174,7 @@ class _BMIScreenState extends State<BMIScreen> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => QuizScreenPhaseTwo(
+                      builder: (context) => QuizScreenPhaseTwoChild(
                             isMale: isMale,
                             age: age,
                           )));

@@ -1,8 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/quiz_screen_phase_one.dart';
+import 'package:isef_project/views/above%2018/quiz_screen_phase_one_adult.dart';
 import 'package:isef_project/widgets/big_custom_button.dart';
+
+import 'under 18/quiz_screen_phase_one_child.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -28,15 +30,21 @@ class _MoreScreenState extends State<MoreScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const QuizScreenPhaseOne(),
+                  builder: (context) => const QuizScreenPhaseOneChild(),
                 ),
               );
             },
           ),
-          const BigCustomButton(
+          BigCustomButton(
             buttonName: 'Above 18?',
             color: Colors.blue,
-            onPressed: null,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const QuizScreenPhaseOneAdult(),
+                ),
+              );
+            },
           ),
         ]),
       ),
