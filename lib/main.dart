@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/firebase_options.dart';
-import 'package:isef_project/views/above%2018/quiz_screen_phase_two_adult.dart';
 import 'package:isef_project/views/onBoarding.dart';
 
 void main() async {

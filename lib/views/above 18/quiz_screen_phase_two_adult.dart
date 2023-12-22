@@ -3,7 +3,6 @@ import 'package:isef_project/constants.dart';
 import 'package:isef_project/models/get_quiz_phase_two_adult.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
-import 'package:isef_project/widgets/passed_color_list.dart';
 
 class QuizScreenPhaseTwoAdult extends StatefulWidget {
   const QuizScreenPhaseTwoAdult({super.key});
@@ -18,7 +17,8 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
   List<Question> questionList = getQuestionsPhaseTwoAdult();
 
   int currentQuestionIndex = 0;
-  int score = 0;
+  int scoreA = 0;
+  int scoreB = 0;
 
   Answer? selectedAnswer;
 
@@ -155,8 +155,8 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
   }
 
   _showScoreDialog() {
-    bool isPassed = false;
-    String title = isPassed ? "Passed " : "Failed";
+    // bool isPassed = false;
+    // String title = isPassed ? "Passed " : "Failed";
     // for (int i = 0; i < rightAns.length;) {
     //   if (rightAns[i] == 17) {
     //     if (rightAns[i] == 1) {
@@ -171,61 +171,61 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
     //   i = i + 2;
     // }
     if (rightAns[0] == 1 && rightAns[1] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[2] == 1 && rightAns[3] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[4] == 1 && rightAns[5] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[6] == 1 && rightAns[7] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[8] == 1 && rightAns[9] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[10] == 1 && rightAns[11] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[12] == 1 && rightAns[13] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[14] == 1 && rightAns[15] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[16] == 1) {
-      score++;
+      scoreA++;
     }
     if (rightAns[17] == 1 && rightAns[18] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[19] == 1 && rightAns[20] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[21] == 1 && rightAns[22] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[23] == 1 && rightAns[24] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[25] == 1 && rightAns[26] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[27] == 1 && rightAns[28] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[29] == 1 && rightAns[30] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[31] == 1 && rightAns[32] == 1) {
-      score++;
+      scoreB++;
     }
     if (rightAns[33] == 1 && rightAns[34] == 1) {
-      score++;
+      scoreB++;
     }
     return AlertDialog(
-      title: Text('score is $score , \n $rightAns'),
+      title: Text('scoreA is $scoreA , scoreB is $scoreB '),
       content: const Text('Try Again Later'),
       actions: [
         Center(
@@ -240,8 +240,8 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
 
                     setState(() {
                       currentQuestionIndex = 0;
-                      score = 0;
-
+                      scoreA = 0;
+                      scoreB = 0;
                       selectedAnswer = null;
                       // rightAns = List.filled(35, 0);
                     });
@@ -256,8 +256,8 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
 
                     setState(() {
                       currentQuestionIndex = 0;
-                      score = 0;
-
+                      scoreA = 0;
+                      scoreB = 0;
                       selectedAnswer = null;
                       // rightAns = List.filled(35, 0);
                     });
