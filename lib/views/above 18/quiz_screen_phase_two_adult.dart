@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/constants.dart';
 import 'package:isef_project/models/get_quiz_phase_two_adult.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
@@ -15,8 +16,10 @@ class QuizScreenPhaseTwoAdult extends StatefulWidget {
 class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
   //define the datas
   List<Question> questionList = getQuestionsPhaseTwoAdult();
+
   int currentQuestionIndex = 0;
   int score = 0;
+
   Answer? selectedAnswer;
 
   @override
@@ -107,8 +110,10 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
         onPressed: () {
           if (selectedAnswer == null) {
             setState(() {
+              if (answer.isCorrect == 1) {
+                rightAns[currentQuestionIndex] = 1;
+              }
               selectedAnswer = answer;
-              score = score + answer.isCorrect;
             });
           }
         },
@@ -135,7 +140,6 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
         onPressed: () {
           if (isLastQuestion) {
             //display score
-
             showDialog(context: context, builder: (_) => _showScoreDialog());
           } else {
             //next question
@@ -152,12 +156,77 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
 
   _showScoreDialog() {
     bool isPassed = false;
-
     String title = isPassed ? "Passed " : "Failed";
-
+    // for (int i = 0; i < rightAns.length;) {
+    //   if (rightAns[i] == 17) {
+    //     if (rightAns[i] == 1) {
+    //       score++;
+    //       i++;
+    //       break;
+    //     }
+    //   }
+    //   if (rightAns[i] == 1 && rightAns[i + 1] == 1) {
+    //     score++;
+    //   }
+    //   i = i + 2;
+    // }
+    if (rightAns[0] == 1 && rightAns[1] == 1) {
+      score++;
+    }
+    if (rightAns[2] == 1 && rightAns[3] == 1) {
+      score++;
+    }
+    if (rightAns[4] == 1 && rightAns[5] == 1) {
+      score++;
+    }
+    if (rightAns[6] == 1 && rightAns[7] == 1) {
+      score++;
+    }
+    if (rightAns[8] == 1 && rightAns[9] == 1) {
+      score++;
+    }
+    if (rightAns[10] == 1 && rightAns[11] == 1) {
+      score++;
+    }
+    if (rightAns[12] == 1 && rightAns[13] == 1) {
+      score++;
+    }
+    if (rightAns[14] == 1 && rightAns[15] == 1) {
+      score++;
+    }
+    if (rightAns[16] == 1) {
+      score++;
+    }
+    if (rightAns[17] == 1 && rightAns[18] == 1) {
+      score++;
+    }
+    if (rightAns[19] == 1 && rightAns[20] == 1) {
+      score++;
+    }
+    if (rightAns[21] == 1 && rightAns[22] == 1) {
+      score++;
+    }
+    if (rightAns[23] == 1 && rightAns[24] == 1) {
+      score++;
+    }
+    if (rightAns[25] == 1 && rightAns[26] == 1) {
+      score++;
+    }
+    if (rightAns[27] == 1 && rightAns[28] == 1) {
+      score++;
+    }
+    if (rightAns[29] == 1 && rightAns[30] == 1) {
+      score++;
+    }
+    if (rightAns[31] == 1 && rightAns[32] == 1) {
+      score++;
+    }
+    if (rightAns[33] == 1 && rightAns[34] == 1) {
+      score++;
+    }
     return AlertDialog(
-      title: PassedColorList(isPassed: isPassed),
-      content: const Text('You have passed the phase one'),
+      title: Text('score is $score , \n $rightAns'),
+      content: const Text('Try Again Later'),
       actions: [
         Center(
           child: Column(
@@ -172,7 +241,9 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
                     setState(() {
                       currentQuestionIndex = 0;
                       score = 0;
+
                       selectedAnswer = null;
+                      // rightAns = List.filled(35, 0);
                     });
                   },
                   child: const Text("Return to phases")),
@@ -186,7 +257,9 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
                     setState(() {
                       currentQuestionIndex = 0;
                       score = 0;
+
                       selectedAnswer = null;
+                      // rightAns = List.filled(35, 0);
                     });
                   },
                   child: const Text("Go To phase 2?")),

@@ -1,0 +1,1 @@
+void addscoreP2A() {}

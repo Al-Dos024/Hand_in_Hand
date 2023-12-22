@@ -265,7 +265,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
     tAscore(numA);
     tBscore(numB);
     // }
-    String title = isPassed ? "Passed " : "Failed";
+    // String title = isPassed ? "Passed " : "Failed";
 
     return AlertDialog(
       title: PassedColorList(isPassed: isPassed),
