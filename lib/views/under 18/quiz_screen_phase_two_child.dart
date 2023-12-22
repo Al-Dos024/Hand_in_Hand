@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/Dataset/male/phase2child3_5M.dart';
+import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
+import 'package:isef_project/Dataset/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
-import 'package:isef_project/widgets/total_score.dart';
 
 class QuizScreenPhaseTwoChild extends StatefulWidget {
   const QuizScreenPhaseTwoChild(
@@ -246,6 +248,19 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
             //display score
 
             showDialog(context: context, builder: (_) => _showScoreDialog());
+            if (widget.isMale == true && (widget.age >= 3 && widget.age <= 5)) {
+              all3_5FunctionM();
+              print('in 3 to 5');
+            }
+            if (widget.isMale == true && (widget.age >= 6 && widget.age <= 8)) {
+              all6_8FunctionM();
+              print('in 6 to 8');
+            }
+            if (widget.isMale == true &&
+                (widget.age >= 9 && widget.age <= 11)) {
+              all9_11FunctionM();
+              print('in 9 to 11');
+            }
           } else {
             //next question
             setState(() {
@@ -261,54 +276,53 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
 
   _showScoreDialog() {
     bool isPassed = false;
-    // if (widget.isMale == true && (widget.age >= 3 && widget.age <= 5)) {
-    tAscore(numA);
-    tBscore(numB);
-    // }
+
     // String title = isPassed ? "Passed " : "Failed";
 
-    return AlertDialog(
-      title: PassedColorList(isPassed: isPassed),
-      content: const Text('You have passed the phase one'),
-      actions: [
-        Center(
-          child: Column(
-            children: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MoreScreen()));
+    return SingleChildScrollView(
+      child: AlertDialog(
+        title: PassedColorList(isPassed: isPassed),
+        content: const Text('You have passed the phase one'),
+        actions: [
+          Center(
+            child: Column(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MoreScreen()));
 
-                    setState(() {
-                      currentQuestionIndex = 0;
-                      score = 0;
-                      selectedAnswer = null;
-                    });
-                  },
-                  child: const Text("Return to phases")),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MoreScreen()));
+                      setState(() {
+                        currentQuestionIndex = 0;
+                        score = 0;
+                        selectedAnswer = null;
+                      });
+                    },
+                    child: const Text("Return to phases")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MoreScreen()));
 
-                    setState(() {
-                      currentQuestionIndex = 0;
-                      score = 0;
-                      selectedAnswer = null;
-                    });
-                  },
-                  child: const Text("Go To phase 2?")),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          ),
-        )
-      ],
+                      setState(() {
+                        currentQuestionIndex = 0;
+                        score = 0;
+                        selectedAnswer = null;
+                      });
+                    },
+                    child: const Text("Go To phase 2?")),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
