@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
+import 'package:isef_project/temp/ibm_cal.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/views/quiz_screen_phase_two.dart';
 
@@ -162,50 +163,102 @@ class _QuizScreenPhaseOneState extends State<QuizScreenPhaseOne> {
   }
 
   _showScoreDialog() {
-    bool isPassed = false;
-    if (tScore >= questionList.length * 0.6) {
-      isPassed = true;
+    bool mIsPassed = false;
+    bool iIsPassed = false;
+    bool dIsPassed = false;
+
+    if (mScore >= 19) {
+      mIsPassed = true;
     }
-    //String title = isPassed ? "Passed " : "Failed";
+    if (iScore >= 14) {
+      iIsPassed = true;
+    }
+    if (dScore >= 19) {
+      dIsPassed = true;
+    }
+    String mTitle = mIsPassed ? "Passed " : "Failed";
+    String iTitle = iIsPassed ? "Passed " : "Failed";
+    String dTitle = dIsPassed ? "Passed " : "Failed";
 
     return AlertDialog(
-      title: Text(
-        "Score is $tScore ",
-        style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+      title: Column(
+        children: [
+          Text(
+            "$mTitle Movment score $mScore",
+            style:
+                TextStyle(color: mIsPassed ? Colors.green : Colors.redAccent),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "$iTitle Rush score $iScore",
+            style:
+                TextStyle(color: iIsPassed ? Colors.green : Colors.redAccent),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "$dTitle attention score $dScore",
+            style:
+                TextStyle(color: dIsPassed ? Colors.green : Colors.redAccent),
+          ),
+        ],
       ),
-      content: const Text('You have passed the phase one'),
+      content: mIsPassed || iIsPassed || dIsPassed
+          ? const Text(
+              'passed the phase one',
+              textAlign: TextAlign.center,
+            )
+          : const Text(
+              'failed in phase one',
+              textAlign: TextAlign.center,
+            ),
       actions: [
-        Column(
-          children: [
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MoreScreen()));
+        Center(
+          child: Column(
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MoreScreen()));
 
-                  setState(() {
-                    currentQuestionIndex = 0;
-                    tScore = 0;
-                    selectedAnswer = null;
-                  });
-                },
-                child: const Text("Return to phases")),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const QuizScreenPhaseTwo()));
+                    setState(() {
+                      currentQuestionIndex = 0;
+                      tScore = 0;
+                      selectedAnswer = null;
+                    });
+                  },
+                  child: const Text("Return to phases")),
+              const SizedBox(
+                height: 15,
+              ),
+              mIsPassed || iIsPassed || dIsPassed
+                  ? TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BMIScreen()));
 
-                  setState(() {
-                    currentQuestionIndex = 0;
-                    tScore = 0;
-                    selectedAnswer = null;
-                  });
-                },
-                child: const Text("Go To phase 2?")),
-          ],
+                        setState(() {
+                          currentQuestionIndex = 0;
+                          tScore = 0;
+                          selectedAnswer = null;
+                        });
+                      },
+                      child: const Text("Go To phase 2?"),
+                    )
+                  : const TextButton(
+                      onPressed: null, child: Text("You Don't need phase two")),
+              const SizedBox(
+                height: 10,
+              )
+            ],
+          ),
         )
       ],
     );
