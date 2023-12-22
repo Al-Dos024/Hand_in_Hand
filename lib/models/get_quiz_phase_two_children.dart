@@ -36,6 +36,16 @@ List<Question> getQuestionsPhaseTwoChild() {
   ));
 
   list.add(Question(
+    "خجول",
+    [
+      Answer("غير صحيح  أبدا ، نادرا ", 0),
+      Answer("درجة قليلة ، أحيانا ", 1),
+      Answer("صحيح إلى حد ما ، غالبا", 2),
+      Answer("صحيح بدرجة كبيرة  ، دائما", 3),
+    ],
+  ));
+
+  list.add(Question(
     " 4 .كل شئ يجب أن يكون دقيق ومضبوط لازم كل حاجه تبقا مترتبه جمبه",
     [
       Answer("غير صحيح  أبدا ، نادرا ", 0),
@@ -184,6 +194,16 @@ List<Question> getQuestionsPhaseTwoChild() {
 
   list.add(Question(
     " عصبي لا يستمع لما يقال  ",
+    [
+      Answer("غير صحيح  أبدا ، نادرا ", 0),
+      Answer("درجة قليلة ، أحيانا ", 1),
+      Answer("صحيح إلى حد ما ، غالبا", 2),
+      Answer("صحيح بدرجة كبيرة  ، دائما", 3),
+    ],
+  ));
+
+  list.add(Question(
+    "يفقد اعصابه",
     [
       Answer("غير صحيح  أبدا ، نادرا ", 0),
       Answer("درجة قليلة ، أحيانا ", 1),

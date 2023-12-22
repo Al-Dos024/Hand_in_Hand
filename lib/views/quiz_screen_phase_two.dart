@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_two_children.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/widgets/passed_color_list.dart';
+import 'package:isef_project/widgets/phase2list.dart';
+import 'package:isef_project/widgets/total_score.dart';
 
 import '../models/quiz_model.dart';
 
 class QuizScreenPhaseTwo extends StatefulWidget {
-  const QuizScreenPhaseTwo({super.key});
-
+  const QuizScreenPhaseTwo(
+      {super.key, required this.age, required this.isMale});
+  final int age;
+  final bool isMale;
   @override
   State<QuizScreenPhaseTwo> createState() => _QuizScreenPhaseTwoState();
 }
@@ -15,7 +20,6 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
   //define the datas
   List<Question> questionList = getQuestionsPhaseTwoChild();
   int currentQuestionIndex = 0;
-
   int score = 0;
   Answer? selectedAnswer;
 
@@ -107,8 +111,104 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
         onPressed: () {
           if (selectedAnswer == null) {
             setState(() {
-              selectedAnswer = answer;
-              score = score + answer.isCorrect;
+              for (int i = 0; i < listA.length; i++) {
+                if (currentQuestionIndex + 1 == listA[i]) {
+                  selectedAnswer = answer;
+                  numA = numA + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listB.length; i++) {
+                if (currentQuestionIndex + 1 == listB[i]) {
+                  selectedAnswer = answer;
+                  numB = numB + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listC.length; i++) {
+                if (currentQuestionIndex + 1 == listC[i]) {
+                  selectedAnswer = answer;
+                  numC = numC + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listD.length; i++) {
+                if (currentQuestionIndex + 1 == listD[i]) {
+                  selectedAnswer = answer;
+                  numD = numD + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listE.length; i++) {
+                if (currentQuestionIndex + 1 == listE[i]) {
+                  selectedAnswer = answer;
+                  numE = numE + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listF.length; i++) {
+                if (currentQuestionIndex + 1 == listF[i]) {
+                  selectedAnswer = answer;
+                  numF = numF + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listG.length; i++) {
+                if (currentQuestionIndex + 1 == listG[i]) {
+                  selectedAnswer = answer;
+                  numG = numG + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listH.length; i++) {
+                if (currentQuestionIndex + 1 == listH[i]) {
+                  selectedAnswer = answer;
+                  numH = numH + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listI.length; i++) {
+                if (currentQuestionIndex + 1 == listI[i]) {
+                  selectedAnswer = answer;
+                  numI = numI + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listJ.length; i++) {
+                if (currentQuestionIndex + 1 == listJ[i]) {
+                  selectedAnswer = answer;
+                  numJ = numJ + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listK.length; i++) {
+                if (currentQuestionIndex + 1 == listK[i]) {
+                  selectedAnswer = answer;
+                  numK = numK + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listL.length; i++) {
+                if (currentQuestionIndex + 1 == listL[i]) {
+                  selectedAnswer = answer;
+                  numL = numL + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listM.length; i++) {
+                if (currentQuestionIndex + 1 == listM[i]) {
+                  selectedAnswer = answer;
+                  numM = numM + answer.isCorrect;
+                  break;
+                }
+              }
+              for (int i = 0; i < listN.length; i++) {
+                if (currentQuestionIndex + 1 == listN[i]) {
+                  selectedAnswer = answer;
+                  numN = numN + answer.isCorrect;
+                  break;
+                }
+              }
             });
           }
         },
@@ -152,49 +252,52 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
 
   _showScoreDialog() {
     bool isPassed = false;
-    if (score >= questionList.length * 0.6) {
-      isPassed = true;
-    }
-    //String title = isPassed ? "Passed " : "Failed";
+    // if (widget.isMale == true && (widget.age >= 3 && widget.age <= 5)) {
+    tAscore(numA);
+    tBscore(numB);
+    // }
+    String title = isPassed ? "Passed " : "Failed";
 
     return AlertDialog(
-      title: Text(
-        "Score is $score ",
-        style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-      ),
+      title: PassedColorList(isPassed: isPassed),
       content: const Text('You have passed the phase one'),
       actions: [
-        Column(
-          children: [
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MoreScreen()));
+        Center(
+          child: Column(
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MoreScreen()));
 
-                  setState(() {
-                    currentQuestionIndex = 0;
-                    score = 0;
-                    selectedAnswer = null;
-                  });
-                },
-                child: const Text("Return to phases")),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MoreScreen()));
+                    setState(() {
+                      currentQuestionIndex = 0;
+                      score = 0;
+                      selectedAnswer = null;
+                    });
+                  },
+                  child: const Text("Return to phases")),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MoreScreen()));
 
-                  setState(() {
-                    currentQuestionIndex = 0;
-                    score = 0;
-                    selectedAnswer = null;
-                  });
-                },
-                child: const Text("Go To phase 2?")),
-          ],
+                    setState(() {
+                      currentQuestionIndex = 0;
+                      score = 0;
+                      selectedAnswer = null;
+                    });
+                  },
+                  child: const Text("Go To phase 2?")),
+              const SizedBox(
+                height: 10,
+              ),
+            ],
+          ),
         )
       ],
     );

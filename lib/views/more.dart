@@ -33,16 +33,10 @@ class _MoreScreenState extends State<MoreScreen> {
               );
             },
           ),
-          BigCustomButton(
+          const BigCustomButton(
             buttonName: 'Above 18?',
             color: Colors.blue,
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const QuizScreenPhaseOne(),
-                ),
-              );
-            },
+            onPressed: null,
           ),
         ]),
       ),
