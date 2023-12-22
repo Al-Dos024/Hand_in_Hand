@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
+import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/temp/ibm_cal.dart';
 import 'package:isef_project/views/more.dart';
-import 'package:isef_project/views/quiz_screen_phase_two.dart';
 
-import '../models/quiz_model.dart';
-
-class QuizScreenPhaseOne extends StatefulWidget {
-  const QuizScreenPhaseOne({super.key});
+class QuizScreenPhaseOneChild extends StatefulWidget {
+  const QuizScreenPhaseOneChild({super.key});
 
   @override
-  State<QuizScreenPhaseOne> createState() => _QuizScreenPhaseOneState();
+  State<QuizScreenPhaseOneChild> createState() =>
+      _QuizScreenPhaseOneChildState();
 }
 
-class _QuizScreenPhaseOneState extends State<QuizScreenPhaseOne> {
+class _QuizScreenPhaseOneChildState extends State<QuizScreenPhaseOneChild> {
   //define the datas
   List<Question> questionList = getQuestionsPhaseOne();
   int currentQuestionIndex = 0;

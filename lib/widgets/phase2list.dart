@@ -26,6 +26,38 @@ int numM = 0;
 int scoreM = 0;
 int numN = 0;
 int scoreN = 0;
+List<List> nestedList = [
+  listA,
+  listB,
+  listC,
+  listD,
+  listE,
+  listF,
+  listG,
+  listH,
+  listI,
+  listJ,
+  listK,
+  listL,
+  listM,
+  listN,
+];
+List<int> nestedListNum = [
+  numA,
+  numB,
+  numC,
+  numD,
+  numE,
+  numF,
+  numG,
+  numH,
+  numI,
+  numJ,
+  numK,
+  numL,
+  numM,
+  numN,
+];
 List<int> listA = [1, 8, 11, 21, 31, 40, 57, 61, 67, 70];
 List<int> listB = [2, 9, 12, 19, 22, 29, 41, 50, 51, 58, 71, 74];
 List<int> listC = [3, 13, 23, 28, 32, 42, 52, 59, 80];

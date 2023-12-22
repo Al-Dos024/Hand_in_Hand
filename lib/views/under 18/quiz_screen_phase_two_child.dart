@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:isef_project/models/get_quiz_phase_two_children.dart';
+import 'package:isef_project/models/get_quiz_phase_two_child.dart';
+import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
 import 'package:isef_project/widgets/total_score.dart';
 
-import '../models/quiz_model.dart';
-
-class QuizScreenPhaseTwo extends StatefulWidget {
-  const QuizScreenPhaseTwo(
+class QuizScreenPhaseTwoChild extends StatefulWidget {
+  const QuizScreenPhaseTwoChild(
       {super.key, required this.age, required this.isMale});
   final int age;
   final bool isMale;
   @override
-  State<QuizScreenPhaseTwo> createState() => _QuizScreenPhaseTwoState();
+  State<QuizScreenPhaseTwoChild> createState() =>
+      _QuizScreenPhaseTwoChildState();
 }
 
-class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
+class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
   //define the datas
   List<Question> questionList = getQuestionsPhaseTwoChild();
   int currentQuestionIndex = 0;
@@ -111,6 +111,15 @@ class _QuizScreenPhaseTwoState extends State<QuizScreenPhaseTwo> {
         onPressed: () {
           if (selectedAnswer == null) {
             setState(() {
+              // for (int j = 0; j < nestedList.length; j++) {
+              //   for (int i = 0; i < nestedList[j].length; i++) {
+              //     if (currentQuestionIndex + 1 == nestedList[j][i]) {
+              //       selectedAnswer = answer;
+              //       nestedListNum[j] = nestedListNum[j] + answer.isCorrect;
+              //       break;
+              //     }
+              //   }
+              // }
               for (int i = 0; i < listA.length; i++) {
                 if (currentQuestionIndex + 1 == listA[i]) {
                   selectedAnswer = answer;
