@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/Dataset/male/phase2child15_17M.dart';
 import 'package:isef_project/Dataset/male/phase2child3_5M.dart';
 import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
 import 'package:isef_project/Dataset/male/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
+
+import '../../Dataset/male/phase2child12_14M.dart';
 
 class QuizScreenPhaseTwoChild extends StatefulWidget {
   const QuizScreenPhaseTwoChild(
@@ -23,6 +27,8 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
   List<Question> questionList = getQuestionsPhaseTwoChild();
   int currentQuestionIndex = 0;
   int score = 0;
+  bool _isPressedOn = false;
+  final List<int> _ph2ansList = List.filled(80, 0);
   Answer? selectedAnswer;
 
   @override
@@ -111,118 +117,21 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (selectedAnswer == null) {
-            setState(() {
-              // didnt work out :(
-              // for (int j = 0; j < nestedList.length; j++) {
-              //   for (int i = 0; i < nestedList[j].length; i++) {
-              //     if (currentQuestionIndex + 1 == nestedList[j][i]) {
-              //       selectedAnswer = answer;
-              //       nestedListNum[j] = nestedListNum[j] + answer.isCorrect;
-              //       break;
-              //     }
-              //   }
-              // }
-              for (int i = 0; i < listA.length; i++) {
-                if (currentQuestionIndex + 1 == listA[i]) {
-                  selectedAnswer = answer;
-                  numA = numA + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listB.length; i++) {
-                if (currentQuestionIndex + 1 == listB[i]) {
-                  selectedAnswer = answer;
-                  numB = numB + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listC.length; i++) {
-                if (currentQuestionIndex + 1 == listC[i]) {
-                  selectedAnswer = answer;
-                  numC = numC + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listD.length; i++) {
-                if (currentQuestionIndex + 1 == listD[i]) {
-                  selectedAnswer = answer;
-                  numD = numD + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listE.length; i++) {
-                if (currentQuestionIndex + 1 == listE[i]) {
-                  selectedAnswer = answer;
-                  numE = numE + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listF.length; i++) {
-                if (currentQuestionIndex + 1 == listF[i]) {
-                  selectedAnswer = answer;
-                  numF = numF + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listG.length; i++) {
-                if (currentQuestionIndex + 1 == listG[i]) {
-                  selectedAnswer = answer;
-                  numG = numG + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listH.length; i++) {
-                if (currentQuestionIndex + 1 == listH[i]) {
-                  selectedAnswer = answer;
-                  numH = numH + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listI.length; i++) {
-                if (currentQuestionIndex + 1 == listI[i]) {
-                  selectedAnswer = answer;
-                  numI = numI + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listJ.length; i++) {
-                if (currentQuestionIndex + 1 == listJ[i]) {
-                  selectedAnswer = answer;
-                  numJ = numJ + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listK.length; i++) {
-                if (currentQuestionIndex + 1 == listK[i]) {
-                  selectedAnswer = answer;
-                  numK = numK + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listL.length; i++) {
-                if (currentQuestionIndex + 1 == listL[i]) {
-                  selectedAnswer = answer;
-                  numL = numL + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listM.length; i++) {
-                if (currentQuestionIndex + 1 == listM[i]) {
-                  selectedAnswer = answer;
-                  numM = numM + answer.isCorrect;
-                  break;
-                }
-              }
-              for (int i = 0; i < listN.length; i++) {
-                if (currentQuestionIndex + 1 == listN[i]) {
-                  selectedAnswer = answer;
-                  numN = numN + answer.isCorrect;
-                  break;
-                }
-              }
-            });
-          }
+          _isPressedOn = true;
+          setState(() {
+            // didnt work out :(
+            // for (int j = 0; j < nestedList.length; j++) {
+            //   for (int i = 0; i < nestedList[j].length; i++) {
+            //     if (currentQuestionIndex + 1 == nestedList[j][i]) {
+            //       selectedAnswer = answer;
+            //       nestedListNum[j] = nestedListNum[j] + answer.isCorrect;
+            //       break;
+            //     }
+            //   }
+            // }
+            selectedAnswer = answer;
+            _ph2ansList[currentQuestionIndex] = answer.isCorrect;
+          });
         },
         child: Text(answer.answerText),
       ),
@@ -245,29 +154,130 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (isLastQuestion) {
-            //display score
-
-            showDialog(context: context, builder: (_) => _showScoreDialog());
-            if (widget.isMale == true && (widget.age >= 3 && widget.age <= 5)) {
-              all3_5FunctionM();
-              print('in 3 to 5');
-            }
-            if (widget.isMale == true && (widget.age >= 6 && widget.age <= 8)) {
-              all6_8FunctionM();
-              print('in 6 to 8');
-            }
-            if (widget.isMale == true &&
-                (widget.age >= 9 && widget.age <= 11)) {
-              all9_11FunctionM();
-              print('in 9 to 11');
-            }
+          if (_isPressedOn == false) {
+            showSnackBar(context, "You must select an answer");
           } else {
-            //next question
-            setState(() {
-              selectedAnswer = null;
-              currentQuestionIndex++;
-            });
+            for (int i = 0; i < listA.length; i++) {
+              if (currentQuestionIndex + 1 == listA[i]) {
+                numA += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listB.length; i++) {
+              if (currentQuestionIndex + 1 == listB[i]) {
+                numB += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listC.length; i++) {
+              if (currentQuestionIndex + 1 == listC[i]) {
+                numC += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listD.length; i++) {
+              if (currentQuestionIndex + 1 == listD[i]) {
+                numD += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listE.length; i++) {
+              if (currentQuestionIndex + 1 == listE[i]) {
+                numE += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listF.length; i++) {
+              if (currentQuestionIndex + 1 == listF[i]) {
+                numF += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listG.length; i++) {
+              if (currentQuestionIndex + 1 == listG[i]) {
+                numG += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listH.length; i++) {
+              if (currentQuestionIndex + 1 == listH[i]) {
+                numH += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listI.length; i++) {
+              if (currentQuestionIndex + 1 == listI[i]) {
+                numI += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listJ.length; i++) {
+              if (currentQuestionIndex + 1 == listJ[i]) {
+                numJ += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listK.length; i++) {
+              if (currentQuestionIndex + 1 == listK[i]) {
+                numK += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listL.length; i++) {
+              if (currentQuestionIndex + 1 == listL[i]) {
+                numL += _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listM.length; i++) {
+              if (currentQuestionIndex + 1 == listM[i]) {
+                numM = _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            for (int i = 0; i < listN.length; i++) {
+              if (currentQuestionIndex + 1 == listN[i]) {
+                numN = _ph2ansList[currentQuestionIndex];
+                break;
+              }
+            }
+            if (isLastQuestion) {
+              //display score
+
+              showDialog(context: context, builder: (_) => _showScoreDialog());
+              if (widget.isMale == true &&
+                  (widget.age >= 3 && widget.age <= 5)) {
+                all3_5FunctionM();
+                print('in 3 to 5');
+              }
+              if (widget.isMale == true &&
+                  (widget.age >= 6 && widget.age <= 8)) {
+                all6_8FunctionM();
+                print('in 6 to 8');
+              }
+              if (widget.isMale == true &&
+                  (widget.age >= 9 && widget.age <= 11)) {
+                all9_11FunctionM();
+                print('in 9 to 11');
+              }
+              if (widget.isMale == true &&
+                  (widget.age >= 12 && widget.age <= 14)) {
+                all12_14FunctionM();
+                print('in 12 to 14');
+              }
+              if (widget.isMale == true &&
+                  (widget.age >= 15 && widget.age <= 17)) {
+                all15_17FunctionM();
+                print('in 15 to 17');
+              }
+            } else {
+              //next question
+              setState(() {
+                _isPressedOn = false;
+                selectedAnswer = null;
+                currentQuestionIndex++;
+              });
+            }
           }
         },
         child: Text(isLastQuestion ? "Submit" : "Next"),
@@ -299,6 +309,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                         currentQuestionIndex = 0;
                         score = 0;
                         selectedAnswer = null;
+                        resetnumandScore();
                       });
                     },
                     child: const Text("Return to phases")),
@@ -313,9 +324,10 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                         currentQuestionIndex = 0;
                         score = 0;
                         selectedAnswer = null;
+                        resetnumandScore();
                       });
                     },
-                    child: const Text("Go To phase 2?")),
+                    child: const Text("Go To phase 3?")),
                 const SizedBox(
                   height: 10,
                 ),
