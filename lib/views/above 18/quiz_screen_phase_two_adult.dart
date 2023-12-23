@@ -3,6 +3,7 @@ import 'package:isef_project/constants.dart';
 import 'package:isef_project/models/get_quiz_phase_two_adult.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/widgets/custom_snackbar.dart';
 
 class QuizScreenPhaseTwoAdult extends StatefulWidget {
   const QuizScreenPhaseTwoAdult({super.key});
@@ -19,7 +20,7 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
   int currentQuestionIndex = 0;
   int scoreA = 0;
   int scoreB = 0;
-
+  bool _isPressedOn = false;
   Answer? selectedAnswer;
 
   @override
@@ -108,14 +109,11 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (selectedAnswer == null) {
-            setState(() {
-              if (answer.isCorrect == 1) {
-                rightAns[currentQuestionIndex] = 1;
-              }
-              selectedAnswer = answer;
-            });
-          }
+          _isPressedOn = true;
+          setState(() {
+            rightAns[currentQuestionIndex] = answer.isCorrect;
+            selectedAnswer = answer;
+          });
         },
         child: Text(answer.answerText),
       ),
@@ -138,15 +136,20 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (isLastQuestion) {
-            //display score
-            showDialog(context: context, builder: (_) => _showScoreDialog());
+          if (_isPressedOn == false) {
+            showSnackBar(context, "You must select an answer");
           } else {
-            //next question
-            setState(() {
-              selectedAnswer = null;
-              currentQuestionIndex++;
-            });
+            if (isLastQuestion) {
+              //display score
+              showDialog(context: context, builder: (_) => _showScoreDialog());
+            } else {
+              //next question
+              setState(() {
+                _isPressedOn = false;
+                selectedAnswer = null;
+                currentQuestionIndex++;
+              });
+            }
           }
         },
         child: Text(isLastQuestion ? "Submit" : "Next"),
@@ -262,7 +265,7 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
                       // rightAns = List.filled(35, 0);
                     });
                   },
-                  child: const Text("Go To phase 2?")),
+                  child: const Text("Go To phase 3?")),
               const SizedBox(
                 height: 10,
               ),

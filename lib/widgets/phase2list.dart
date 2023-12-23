@@ -26,7 +26,7 @@ int numM = 0;
 int scoreM = 0;
 int numN = 0;
 int scoreN = 0;
-List<List> nestedList = [
+List<List<int>> nestedList = [
   listA,
   listB,
   listC,
@@ -42,7 +42,7 @@ List<List> nestedList = [
   listM,
   listN,
 ];
-List<int> nestedListNum = [
+List<int> listNumP2 = [
   numA,
   numB,
   numC,
@@ -91,3 +91,33 @@ List<int> listN = [
   79,
   80
 ];
+void resetnumandScore() {
+  numA = 0;
+  scoreA = 0;
+  numB = 0;
+  scoreB = 0;
+  numC = 0;
+  scoreC = 0;
+  numD = 0;
+  scoreD = 0;
+  numE = 0;
+  scoreE = 0;
+  numF = 0;
+  scoreF = 0;
+  numG = 0;
+  scoreG = 0;
+  numH = 0;
+  scoreH = 0;
+  numI = 0;
+  scoreI = 0;
+  numJ = 0;
+  scoreJ = 0;
+  numK = 0;
+  scoreK = 0;
+  numL = 0;
+  scoreL = 0;
+  numM = 0;
+  scoreM = 0;
+  numN = 0;
+  scoreN = 0;
+}

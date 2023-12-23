@@ -3,6 +3,7 @@ import 'package:isef_project/models/get_quiz_phase_one.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/above%2018/quiz_screen_phase_two_adult.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/widgets/custom_snackbar.dart';
 
 class QuizScreenPhaseOneAdult extends StatefulWidget {
   const QuizScreenPhaseOneAdult({super.key});
@@ -19,8 +20,9 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
   int mScore = 0;
   int iScore = 0;
   int dScore = 0;
-  int tScore = 0;
+  final List<int> _ph1ansList = List.filled(36, 0);
   Answer? selectedAnswer;
+  bool _isPressedOn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -108,20 +110,11 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (selectedAnswer == null) {
-            setState(() {
-              if (currentQuestionIndex < 14) {
-                selectedAnswer = answer;
-                mScore = mScore + answer.isCorrect;
-              } else if (currentQuestionIndex < 24) {
-                selectedAnswer = answer;
-                iScore = iScore + answer.isCorrect;
-              } else {
-                selectedAnswer = answer;
-                dScore = dScore + answer.isCorrect;
-              }
-            });
-          }
+          _isPressedOn = true;
+          setState(() {
+            selectedAnswer = answer;
+            _ph1ansList[currentQuestionIndex] = answer.isCorrect;
+          });
         },
         child: Text(answer.answerText),
       ),
@@ -144,16 +137,28 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
           shape: const StadiumBorder(),
         ),
         onPressed: () {
-          if (isLastQuestion) {
-            //display score
-
-            showDialog(context: context, builder: (_) => _showScoreDialog());
+          if (_isPressedOn == false) {
+            showSnackBar(context, "You must select an answer");
           } else {
-            //next question
-            setState(() {
-              selectedAnswer = null;
-              currentQuestionIndex++;
-            });
+            if (currentQuestionIndex < 13) {
+              mScore += _ph1ansList[currentQuestionIndex];
+            } else if (currentQuestionIndex < 23) {
+              iScore += _ph1ansList[currentQuestionIndex];
+            } else {
+              dScore += _ph1ansList[currentQuestionIndex];
+            }
+            if (isLastQuestion) {
+              //display score
+
+              showDialog(context: context, builder: (_) => _showScoreDialog());
+            } else {
+              //next question
+              setState(() {
+                _isPressedOn = false;
+                selectedAnswer = null;
+                currentQuestionIndex++;
+              });
+            }
           }
         },
         child: Text(isLastQuestion ? "Submit" : "Next"),
@@ -227,7 +232,9 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
 
                     setState(() {
                       currentQuestionIndex = 0;
-                      tScore = 0;
+                      mScore = 0;
+                      iScore = 0;
+                      dScore = 0;
                       selectedAnswer = null;
                     });
                   },
@@ -246,7 +253,9 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
 
                         setState(() {
                           currentQuestionIndex = 0;
-                          tScore = 0;
+                          mScore = 0;
+                          iScore = 0;
+                          dScore = 0;
                           selectedAnswer = null;
                         });
                       },
