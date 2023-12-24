@@ -124,16 +124,6 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
         onPressed: () {
           _isPressedOn = true;
           setState(() {
-            // didnt work out :(
-            // for (int j = 0; j < nestedList.length; j++) {
-            //   for (int i = 0; i < nestedList[j].length; i++) {
-            //     if (currentQuestionIndex + 1 == nestedList[j][i]) {
-            //       selectedAnswer = answer;
-            //       nestedListNum[j] = nestedListNum[j] + answer.isCorrect;
-            //       break;
-            //     }
-            //   }
-            // }
             selectedAnswer = answer;
             _ph2ansList[currentQuestionIndex] = answer.isCorrect;
           });
@@ -162,90 +152,97 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           if (_isPressedOn == false) {
             showSnackBar(context, "You must select an answer");
           } else {
-            for (int i = 0; i < listA.length; i++) {
-              if (currentQuestionIndex + 1 == listA[i]) {
-                numA += _ph2ansList[currentQuestionIndex];
-                break;
+            for (int j = 0; j < nestedList.length; j++) {
+              for (int i = 0; i < nestedList[j].length; i++) {
+                if (currentQuestionIndex + 1 == nestedList[j][i]) {
+                  listNumP2[j] += _ph2ansList[currentQuestionIndex];
+                }
               }
             }
-            for (int i = 0; i < listB.length; i++) {
-              if (currentQuestionIndex + 1 == listB[i]) {
-                numB += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listC.length; i++) {
-              if (currentQuestionIndex + 1 == listC[i]) {
-                numC += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listD.length; i++) {
-              if (currentQuestionIndex + 1 == listD[i]) {
-                numD += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listE.length; i++) {
-              if (currentQuestionIndex + 1 == listE[i]) {
-                numE += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listF.length; i++) {
-              if (currentQuestionIndex + 1 == listF[i]) {
-                numF += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listG.length; i++) {
-              if (currentQuestionIndex + 1 == listG[i]) {
-                numG += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listH.length; i++) {
-              if (currentQuestionIndex + 1 == listH[i]) {
-                numH += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listI.length; i++) {
-              if (currentQuestionIndex + 1 == listI[i]) {
-                numI += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listJ.length; i++) {
-              if (currentQuestionIndex + 1 == listJ[i]) {
-                numJ += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listK.length; i++) {
-              if (currentQuestionIndex + 1 == listK[i]) {
-                numK += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listL.length; i++) {
-              if (currentQuestionIndex + 1 == listL[i]) {
-                numL += _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listM.length; i++) {
-              if (currentQuestionIndex + 1 == listM[i]) {
-                numM = _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
-            for (int i = 0; i < listN.length; i++) {
-              if (currentQuestionIndex + 1 == listN[i]) {
-                numN = _ph2ansList[currentQuestionIndex];
-                break;
-              }
-            }
+            // for (int i = 0; i < listA.length; i++) {
+            //   if (currentQuestionIndex + 1 == listA[i]) {
+            //     numA += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listB.length; i++) {
+            //   if (currentQuestionIndex + 1 == listB[i]) {
+            //     numB += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listC.length; i++) {
+            //   if (currentQuestionIndex + 1 == listC[i]) {
+            //     numC += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listD.length; i++) {
+            //   if (currentQuestionIndex + 1 == listD[i]) {
+            //     numD += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listE.length; i++) {
+            //   if (currentQuestionIndex + 1 == listE[i]) {
+            //     numE += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listF.length; i++) {
+            //   if (currentQuestionIndex + 1 == listF[i]) {
+            //     numF += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listG.length; i++) {
+            //   if (currentQuestionIndex + 1 == listG[i]) {
+            //     numG += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listH.length; i++) {
+            //   if (currentQuestionIndex + 1 == listH[i]) {
+            //     numH += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listI.length; i++) {
+            //   if (currentQuestionIndex + 1 == listI[i]) {
+            //     numI += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listJ.length; i++) {
+            //   if (currentQuestionIndex + 1 == listJ[i]) {
+            //     numJ += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listK.length; i++) {
+            //   if (currentQuestionIndex + 1 == listK[i]) {
+            //     numK += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listL.length; i++) {
+            //   if (currentQuestionIndex + 1 == listL[i]) {
+            //     numL += _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listM.length; i++) {
+            //   if (currentQuestionIndex + 1 == listM[i]) {
+            //     numM = _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
+            // for (int i = 0; i < listN.length; i++) {
+            //   if (currentQuestionIndex + 1 == listN[i]) {
+            //     numN = _ph2ansList[currentQuestionIndex];
+            //     break;
+            //   }
+            // }
             if (isLastQuestion) {
               //display score
 
@@ -296,6 +293,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
         (widget.age >= 9 && widget.age <= 11)) {
       all9_11FunctionF();
       print('in 9 to 11 , female');
+      print(listNumP2.toString());
     } else if (widget.isMale == false &&
         (widget.age >= 12 && widget.age <= 14)) {
       all12_14FunctionF();

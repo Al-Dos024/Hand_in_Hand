@@ -1,20 +1,20 @@
 import '../../widgets/phase2list.dart';
 
 void all15_17FunctionF() {
-  tAscore15_17F(numA);
-  tBscore15_17F(numB);
-  tCscore15_17F(numC);
-  tDscore15_17F(numD);
-  tEscore15_17F(numE);
-  tFscore15_17F(numF);
-  tGscore15_17F(numG);
-  tHscore15_17F(numH);
-  tIscore15_17F(numI);
-  tJscore15_17F(numJ);
-  tKscore15_17F(numK);
-  tLscore15_17F(numL);
-  tMscore15_17F(numM);
-  tNscore15_17F(numN);
+  tAscore15_17F(listNumP2[0]);
+  tBscore15_17F(listNumP2[1]);
+  tCscore15_17F(listNumP2[2]);
+  tDscore15_17F(listNumP2[3]);
+  tEscore15_17F(listNumP2[4]);
+  tFscore15_17F(listNumP2[5]);
+  tGscore15_17F(listNumP2[6]);
+  tHscore15_17F(listNumP2[7]);
+  tIscore15_17F(listNumP2[8]);
+  tJscore15_17F(listNumP2[9]);
+  tKscore15_17F(listNumP2[10]);
+  tLscore15_17F(listNumP2[11]);
+  tMscore15_17F(listNumP2[12]);
+  tNscore15_17F(listNumP2[13]);
 }
 
 List<int> scoreAborad15_17 = [

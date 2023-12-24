@@ -14,7 +14,7 @@ class PassedColorList extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "A is $numA ",
+          "A is ${listNumP2[0]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -22,7 +22,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "B is $numB ",
+          "B is ${listNumP2[1]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -30,7 +30,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "C is $numC ",
+          "C is ${listNumP2[2]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -38,7 +38,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "D is $numD ",
+          "D is ${listNumP2[3]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -46,7 +46,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "E is $numE ",
+          "E is ${listNumP2[4]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -54,7 +54,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "F is $numF ",
+          "F is ${listNumP2[5]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -62,7 +62,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "G is $numG ",
+          "G is ${listNumP2[6]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -70,7 +70,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "H is $numH ",
+          "H is ${listNumP2[7]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -78,7 +78,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "I is $numI ",
+          "I is ${listNumP2[8]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -86,7 +86,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "J is $numJ ",
+          "J is ${listNumP2[9]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -94,7 +94,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "K is $numK ",
+          "K is ${listNumP2[10]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -102,7 +102,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "L is $numL ",
+          "L is ${listNumP2[11]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -110,7 +110,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "M is $numM ",
+          "M is ${listNumP2[12]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
@@ -118,7 +118,7 @@ class PassedColorList extends StatelessWidget {
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(
-          "N is $numN ",
+          "N is ${listNumP2[13]} ",
           style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
         ),
         Text(

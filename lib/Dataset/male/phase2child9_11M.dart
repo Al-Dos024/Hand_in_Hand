@@ -1,20 +1,20 @@
 import 'package:isef_project/widgets/phase2list.dart';
 
 void all9_11FunctionM() {
-  tAscore9_11(numA);
-  tBscore9_11(numB);
-  tCscore9_11(numC);
-  tDscore9_11(numD);
-  tEscore9_11(numE);
-  tFscore9_11(numF);
-  tGscore9_11(numG);
-  tHscore9_11(numH);
-  tIscore9_11(numI);
-  tJscore9_11(numJ);
-  tKscore9_11(numK);
-  tLscore9_11(numL);
-  tMscore9_11(numM);
-  tNscore9_11(numN);
+  tAscore9_11(listNumP2[0]);
+  tBscore9_11(listNumP2[1]);
+  tCscore9_11(listNumP2[2]);
+  tDscore9_11(listNumP2[3]);
+  tEscore9_11(listNumP2[4]);
+  tFscore9_11(listNumP2[5]);
+  tGscore9_11(listNumP2[6]);
+  tHscore9_11(listNumP2[7]);
+  tIscore9_11(listNumP2[8]);
+  tJscore9_11(listNumP2[9]);
+  tKscore9_11(listNumP2[10]);
+  tLscore9_11(listNumP2[11]);
+  tMscore9_11(listNumP2[12]);
+  tNscore9_11(listNumP2[13]);
 }
 
 List<int> scoreAborad9_11 = [

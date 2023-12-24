@@ -92,32 +92,32 @@ List<int> listN = [
   80
 ];
 void resetnumandScore() {
-  numA = 0;
+  listNumP2[0] = 0;
   scoreA = 0;
-  numB = 0;
+  listNumP2[1] = 0;
   scoreB = 0;
-  numC = 0;
+  listNumP2[2] = 0;
   scoreC = 0;
-  numD = 0;
+  listNumP2[3] = 0;
   scoreD = 0;
-  numE = 0;
+  listNumP2[4] = 0;
   scoreE = 0;
-  numF = 0;
+  listNumP2[5] = 0;
   scoreF = 0;
-  numG = 0;
+  listNumP2[6] = 0;
   scoreG = 0;
-  numH = 0;
+  listNumP2[7] = 0;
   scoreH = 0;
-  numI = 0;
+  listNumP2[8] = 0;
   scoreI = 0;
-  numJ = 0;
+  listNumP2[9] = 0;
   scoreJ = 0;
-  numK = 0;
+  listNumP2[10] = 0;
   scoreK = 0;
-  numL = 0;
+  listNumP2[11] = 0;
   scoreL = 0;
-  numM = 0;
+  listNumP2[12] = 0;
   scoreM = 0;
-  numN = 0;
+  listNumP2[13] = 0;
   scoreN = 0;
 }

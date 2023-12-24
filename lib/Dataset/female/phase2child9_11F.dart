@@ -1,20 +1,20 @@
 import '../../widgets/phase2list.dart';
 
 void all9_11FunctionF() {
-  tAscore9_11F(numA);
-  tBscore9_11F(numB);
-  tCscore9_11F(numC);
-  tDscore9_11F(numD);
-  tEscore9_11F(numE);
-  tFscore9_11F(numF);
-  tGscore9_11F(numG);
-  tHscore9_11F(numH);
-  tIscore9_11F(numI);
-  tJscore9_11F(numJ);
-  tKscore9_11F(numK);
-  tLscore9_11F(numL);
-  tMscore9_11F(numM);
-  tNscore9_11F(numN);
+  tAscore9_11F(listNumP2[0]);
+  tBscore9_11F(listNumP2[1]);
+  tCscore9_11F(listNumP2[2]);
+  tDscore9_11F(listNumP2[3]);
+  tEscore9_11F(listNumP2[4]);
+  tFscore9_11F(listNumP2[5]);
+  tGscore9_11F(listNumP2[6]);
+  tHscore9_11F(listNumP2[7]);
+  tIscore9_11F(listNumP2[8]);
+  tJscore9_11F(listNumP2[9]);
+  tKscore9_11F(listNumP2[10]);
+  tLscore9_11F(listNumP2[11]);
+  tMscore9_11F(listNumP2[12]);
+  tNscore9_11F(listNumP2[13]);
 }
 
 List<int> scoreAborad9_11 = // الاناث من 9 ل 11
