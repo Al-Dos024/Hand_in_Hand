@@ -234,6 +234,7 @@ List<int> scoreHborad3_5 = [
   40,
   42,
   43,
+  44,
   46,
   47,
   49,
@@ -305,6 +306,7 @@ void tJscore3_5(int num) {
 }
 
 List<int> scoreKborad3_5 = [
+  0,
   39,
   41,
   42,
