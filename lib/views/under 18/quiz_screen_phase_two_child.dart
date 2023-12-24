@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/Dataset/female/phase2child12_14F.dart';
+import 'package:isef_project/Dataset/female/phase2child15_17F.dart';
+import 'package:isef_project/Dataset/female/phase2child3_5F.dart';
+import 'package:isef_project/Dataset/female/phase2child6_8F.dart';
 import 'package:isef_project/Dataset/male/phase2child15_17M.dart';
 import 'package:isef_project/Dataset/male/phase2child3_5M.dart';
 import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
@@ -10,6 +14,7 @@ import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
 
+import '../../Dataset/female/phase2child9_11F.dart';
 import '../../Dataset/male/phase2child12_14M.dart';
 
 class QuizScreenPhaseTwoChild extends StatefulWidget {
@@ -245,31 +250,6 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
               //display score
 
               showDialog(context: context, builder: (_) => _showScoreDialog());
-              if (widget.isMale == true &&
-                  (widget.age >= 3 && widget.age <= 5)) {
-                all3_5FunctionM();
-                print('in 3 to 5');
-              }
-              if (widget.isMale == true &&
-                  (widget.age >= 6 && widget.age <= 8)) {
-                all6_8FunctionM();
-                print('in 6 to 8');
-              }
-              if (widget.isMale == true &&
-                  (widget.age >= 9 && widget.age <= 11)) {
-                all9_11FunctionM();
-                print('in 9 to 11');
-              }
-              if (widget.isMale == true &&
-                  (widget.age >= 12 && widget.age <= 14)) {
-                all12_14FunctionM();
-                print('in 12 to 14');
-              }
-              if (widget.isMale == true &&
-                  (widget.age >= 15 && widget.age <= 17)) {
-                all15_17FunctionM();
-                print('in 15 to 17');
-              }
             } else {
               //next question
               setState(() {
@@ -289,7 +269,42 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
     bool isPassed = false;
 
     // String title = isPassed ? "Passed " : "Failed";
-
+    if (widget.isMale == true && (widget.age >= 3 && widget.age <= 5)) {
+      all3_5FunctionM();
+      print('in 3 to 5 , male');
+    } else if (widget.isMale == true && (widget.age >= 6 && widget.age <= 8)) {
+      all6_8FunctionM();
+      print('in 6 to 8 , male');
+    } else if (widget.isMale == true && (widget.age >= 9 && widget.age <= 11)) {
+      all9_11FunctionM();
+      print('in 9 to 11, male');
+    } else if (widget.isMale == true &&
+        (widget.age >= 12 && widget.age <= 14)) {
+      all12_14FunctionM();
+      print('in 12 to 14, male');
+    } else if (widget.isMale == true &&
+        (widget.age >= 15 && widget.age <= 17)) {
+      all15_17FunctionM();
+      print('in 15 to 17, male');
+    } else if (widget.isMale == false && (widget.age >= 3 && widget.age <= 5)) {
+      all3_5FunctionF();
+      print('in 3 to 5 , female');
+    } else if (widget.isMale == false && (widget.age >= 6 && widget.age <= 8)) {
+      all6_8FunctionF();
+      print('in 6 to 8, female');
+    } else if (widget.isMale == false &&
+        (widget.age >= 9 && widget.age <= 11)) {
+      all9_11FunctionF();
+      print('in 9 to 11 , female');
+    } else if (widget.isMale == false &&
+        (widget.age >= 12 && widget.age <= 14)) {
+      all12_14FunctionF();
+      print('in 12 to 14, female');
+    } else if (widget.isMale == false &&
+        (widget.age >= 15 && widget.age <= 17)) {
+      all15_17FunctionF();
+      print('in 15 to 17, female');
+    }
     return SingleChildScrollView(
       child: AlertDialog(
         title: PassedColorList(isPassed: isPassed),

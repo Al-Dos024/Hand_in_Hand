@@ -274,6 +274,7 @@ void tHscore12_14(int num) {
 
 List<int> scoreIborad12_14 = [
   42,
+  45,
   47,
   49,
   51,
