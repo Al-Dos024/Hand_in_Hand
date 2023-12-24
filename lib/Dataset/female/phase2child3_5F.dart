@@ -1,20 +1,20 @@
 import 'package:isef_project/widgets/phase2list.dart';
 
 void all3_5FunctionF() {
-  tAscore3_5F(numA);
-  tBscore3_5F(numB);
-  tCscore3_5F(numC);
-  tDscore3_5F(numD);
-  tEscore3_5F(numE);
-  tFscore3_5F(numF);
-  tGscore3_5F(numG);
-  tHscore3_5F(numH);
-  tIscore3_5F(numI);
-  tJscore3_5F(numJ);
-  tKscore3_5F(numK);
-  tLscore3_5F(numL);
-  tMscore3_5F(numM);
-  tNscore3_5F(numN);
+  tAscore3_5F(listNumP2[0]);
+  tBscore3_5F(listNumP2[1]);
+  tCscore3_5F(listNumP2[2]);
+  tDscore3_5F(listNumP2[3]);
+  tEscore3_5F(listNumP2[4]);
+  tFscore3_5F(listNumP2[5]);
+  tGscore3_5F(listNumP2[6]);
+  tHscore3_5F(listNumP2[7]);
+  tIscore3_5F(listNumP2[8]);
+  tJscore3_5F(listNumP2[9]);
+  tKscore3_5F(listNumP2[10]);
+  tLscore3_5F(listNumP2[11]);
+  tMscore3_5F(listNumP2[12]);
+  tNscore3_5F(listNumP2[13]);
 }
 
 List<int> scoreAborad3_5 = //الاطفال الاناث من 3 ل5

@@ -1,20 +1,20 @@
 import 'package:isef_project/widgets/phase2list.dart';
 
 void all3_5FunctionM() {
-  tAscore3_5(numA);
-  tBscore3_5(numB);
-  tCscore3_5(numC);
-  tDscore3_5(numD);
-  tEscore3_5(numE);
-  tFscore3_5(numF);
-  tGscore3_5(numG);
-  tHscore3_5(numH);
-  tIscore3_5(numI);
-  tJscore3_5(numJ);
-  tKscore3_5(numK);
-  tLscore3_5(numL);
-  tMscore3_5(numM);
-  tNscore3_5(numN);
+  tAscore3_5(listNumP2[0]);
+  tBscore3_5(listNumP2[1]);
+  tCscore3_5(listNumP2[2]);
+  tDscore3_5(listNumP2[3]);
+  tEscore3_5(listNumP2[4]);
+  tFscore3_5(listNumP2[5]);
+  tGscore3_5(listNumP2[6]);
+  tHscore3_5(listNumP2[7]);
+  tIscore3_5(listNumP2[8]);
+  tJscore3_5(listNumP2[9]);
+  tKscore3_5(listNumP2[10]);
+  tLscore3_5(listNumP2[11]);
+  tMscore3_5(listNumP2[12]);
+  tNscore3_5(listNumP2[13]);
 }
 
 List<int> scoreAborad3_5 = [

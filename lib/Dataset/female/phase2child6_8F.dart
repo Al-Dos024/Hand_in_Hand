@@ -1,20 +1,20 @@
 import '../../widgets/phase2list.dart';
 
 void all6_8FunctionF() {
-  tAscore6_8F(numA);
-  tBscore6_8F(numB);
-  tCscore6_8F(numC);
-  tDscore6_8F(numD);
-  tEscore6_8F(numE);
-  tFscore6_8F(numF);
-  tGscore6_8F(numG);
-  tHscore6_8F(numH);
-  tIscore6_8F(numI);
-  tJscore6_8F(numJ);
-  tKscore6_8F(numK);
-  tLscore6_8F(numL);
-  tMscore6_8F(numM);
-  tNscore6_8F(numN);
+  tAscore6_8F(listNumP2[0]);
+  tBscore6_8F(listNumP2[1]);
+  tCscore6_8F(listNumP2[2]);
+  tDscore6_8F(listNumP2[3]);
+  tEscore6_8F(listNumP2[4]);
+  tFscore6_8F(listNumP2[5]);
+  tGscore6_8F(listNumP2[6]);
+  tHscore6_8F(listNumP2[7]);
+  tIscore6_8F(listNumP2[8]);
+  tJscore6_8F(listNumP2[9]);
+  tKscore6_8F(listNumP2[10]);
+  tLscore6_8F(listNumP2[11]);
+  tMscore6_8F(listNumP2[12]);
+  tNscore6_8F(listNumP2[13]);
 }
 
 List<int> scoreAborad6_8 = // الاناث من 6 ل 8
