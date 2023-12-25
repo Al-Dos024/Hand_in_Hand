@@ -32,7 +32,7 @@ class _OnBoradingState extends State<OnBorading> {
               children: [
                 buildPage(
                     color: Colors.white,
-                    urlImage: 'assets/img/1stADHD.jpg',
+                    urlImage: 'assets/img/dvsf.mp4',
                     title: "Welcome a board",
                     subtitle:
                         "ADHD is one of the most common neurodevelopmental disorders of childhood. It is usually first diagnosed in childhood and often lasts into adulthood. Children with ADHD may have trouble paying attention, controlling impulsive behaviors (may act without thinking about what the result will be), or be overly active. "),
@@ -44,7 +44,7 @@ class _OnBoradingState extends State<OnBorading> {
                         "Many people do not know that they have ADHD, and many people continue to live without knowing that they have it, thinking of themselves as a failure due to lack of knowledge about the disorder or lack of correct knowledge and aslo the parents. They are different, but with characteristics and beautiful people and therefore a different lifestyle and. "),
                 buildPage(
                     color: Colors.white,
-                    urlImage: 'assets/img/1stADHD.jpg',
+                    urlImage: 'assets/img/adhdMain.jpg',
                     title: "Shall we begin ?",
                     subtitle:
                         "They might disrupt their family unit. And they may have difficulty interacting appropriately with peers and the adults that they come into contact with on a day to day basis he behavior of children with ADHD often results in serious disturbances in their relationships with parents, teachers, peers, and siblings, as well as academic problems."),

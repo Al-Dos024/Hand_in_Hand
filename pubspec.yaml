@@ -29,23 +29,24 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.24.2
   firebase_auth: ^4.15.3
-  modal_progress_hud_nsn: ^0.4.0
+  firebase_core: ^2.24.2
   flutter:
     sdk: flutter
+  modal_progress_hud_nsn: ^0.4.0
   smooth_page_indicator: ^1.1.0
+  video_player: ^2.8.1
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/img/adhdMain.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,6 +62,8 @@ flutter:
     - assets/img/male.png
     - assets/img/female.png
     - assets/img/1stADHD.jpg
+    - assets/img/adhdMain.jpg
+    - assets/img/dvsf.mp4
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
