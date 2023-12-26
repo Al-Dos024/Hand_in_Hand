@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const kPrimryColor = Colors.red;
+const kPrimryColor = Color(0xff7C88FA);
+const kname = Color.fromARGB(255, 222, 104, 104);
 List<int> rightAns = [
   0,
   0,
