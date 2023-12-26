@@ -12,7 +12,11 @@ import 'package:isef_project/Dataset/male/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/views/registar.dart';
+import 'package:isef_project/widgets/a_advice.dart';
+import 'package:isef_project/widgets/b_advice.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
+import 'package:isef_project/widgets/f_advice.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
 
@@ -161,90 +165,6 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                 }
               }
             }
-            // for (int i = 0; i < listA.length; i++) {
-            //   if (currentQuestionIndex + 1 == listA[i]) {
-            //     numA += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listB.length; i++) {
-            //   if (currentQuestionIndex + 1 == listB[i]) {
-            //     numB += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listC.length; i++) {
-            //   if (currentQuestionIndex + 1 == listC[i]) {
-            //     numC += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listD.length; i++) {
-            //   if (currentQuestionIndex + 1 == listD[i]) {
-            //     numD += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listE.length; i++) {
-            //   if (currentQuestionIndex + 1 == listE[i]) {
-            //     numE += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listF.length; i++) {
-            //   if (currentQuestionIndex + 1 == listF[i]) {
-            //     numF += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listG.length; i++) {
-            //   if (currentQuestionIndex + 1 == listG[i]) {
-            //     numG += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listH.length; i++) {
-            //   if (currentQuestionIndex + 1 == listH[i]) {
-            //     numH += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listI.length; i++) {
-            //   if (currentQuestionIndex + 1 == listI[i]) {
-            //     numI += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listJ.length; i++) {
-            //   if (currentQuestionIndex + 1 == listJ[i]) {
-            //     numJ += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listK.length; i++) {
-            //   if (currentQuestionIndex + 1 == listK[i]) {
-            //     numK += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listL.length; i++) {
-            //   if (currentQuestionIndex + 1 == listL[i]) {
-            //     numL += _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listM.length; i++) {
-            //   if (currentQuestionIndex + 1 == listM[i]) {
-            //     numM = _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
-            // for (int i = 0; i < listN.length; i++) {
-            //   if (currentQuestionIndex + 1 == listN[i]) {
-            //     numN = _ph2ansList[currentQuestionIndex];
-            //     break;
-            //   }
-            // }
             if (isLastQuestion) {
               //display score
 
@@ -305,6 +225,24 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
       all15_17FunctionF();
       print('in 15 to 17, female');
     }
+    databaseRef.child(uid).child("phase two").set(
+      {
+        'A score': scoreA,
+        'B score': scoreB,
+        'C score': scoreC,
+        'D score': scoreD,
+        'E score': scoreE,
+        'F score': scoreF,
+        'G score': scoreG,
+        'H score': scoreH,
+        'I score': scoreI,
+        'J score': scoreJ,
+        'K score': scoreK,
+        'L score': scoreL,
+        'M score': scoreM,
+        'N score': scoreN,
+      },
+    );
     return SingleChildScrollView(
       child: AlertDialog(
         title: PassedColorList(isPassed: isPassed),
@@ -313,6 +251,49 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           Center(
             child: Column(
               children: [
+                Row(
+                  children: [
+                    scoreF >= 60
+                        ? TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const AAdvice()));
+
+                              setState(() {});
+                            },
+                            child: const Text("A advice"))
+                        : const TextButton(
+                            onPressed: null, child: Text("A advice")),
+                    scoreF >= 60
+                        ? TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const BAdvice()));
+
+                              setState(() {});
+                            },
+                            child: const Text("B advice"))
+                        : const TextButton(
+                            onPressed: null, child: Text("B advice")),
+                    scoreF >= 60
+                        ? TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const FAdvice()));
+
+                              setState(() {});
+                            },
+                            child: const Text("F advice"))
+                        : const TextButton(
+                            onPressed: null, child: Text("F advice")),
+                  ],
+                ),
                 TextButton(
                     onPressed: () {
                       Navigator.push(

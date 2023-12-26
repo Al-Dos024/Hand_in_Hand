@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
 import 'package:isef_project/models/quiz_model.dart';
+import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/views/under%2018/ibm_cal.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 
@@ -147,9 +148,16 @@ class _QuizScreenPhaseOneChildState extends State<QuizScreenPhaseOneChild> {
             } else {
               dScore += _ph1ansList[currentQuestionIndex];
             }
+
             if (isLastQuestion) {
               //display score
-
+              databaseRef.child(uid).child("phase one").set(
+                {
+                  'phase one Movment score': mScore,
+                  'phase one Rush score': iScore,
+                  'phase one attention score': dScore,
+                },
+              );
               showDialog(context: context, builder: (_) => _showScoreDialog());
             } else {
               //next question

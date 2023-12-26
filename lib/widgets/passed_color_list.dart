@@ -6,7 +6,7 @@ class PassedColorList extends StatelessWidget {
     super.key,
     required this.isPassed,
   });
-
+  final int lim = 60;
   final bool isPassed;
 
   @override
@@ -14,116 +14,46 @@ class PassedColorList extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "A is ${listNumP2[0]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreA >= lim ? "A score is $scoreA " : "",
         ),
         Text(
-          "A score is $scoreA ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreB >= lim ? "B score is $scoreB " : "",
         ),
         Text(
-          "B is ${listNumP2[1]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreC >= lim ? "C score is $scoreC " : "",
         ),
         Text(
-          "B score is $scoreB ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreD >= lim ? "D score is $scoreD " : "",
         ),
         Text(
-          "C is ${listNumP2[2]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreE >= lim ? "E score is $scoreE " : "",
         ),
         Text(
-          "C score is $scoreC ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreF >= lim ? "F score is $scoreF " : "",
         ),
         Text(
-          "D is ${listNumP2[3]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreG >= lim ? "G score is $scoreG " : "",
         ),
         Text(
-          "D score is $scoreD ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreH >= lim ? "H score is $scoreH " : "",
         ),
         Text(
-          "E is ${listNumP2[4]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreI >= lim ? "I score is $scoreI " : "",
         ),
         Text(
-          "E score is $scoreE ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreJ >= lim ? "J score is $scoreJ " : "",
         ),
         Text(
-          "F is ${listNumP2[5]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreK >= lim ? "K score is $scoreK " : "",
         ),
         Text(
-          "F score is $scoreF ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreL >= lim ? "L score is $scoreL " : "",
         ),
         Text(
-          "G is ${listNumP2[6]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreM >= lim ? "M score is $scoreM " : "",
         ),
         Text(
-          "G score is $scoreG ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "H is ${listNumP2[7]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "H score is $scoreH ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "I is ${listNumP2[8]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "I score is $scoreI ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "J is ${listNumP2[9]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "J score is $scoreJ ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "K is ${listNumP2[10]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "K score is $scoreK ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "L is ${listNumP2[11]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "L score is $scoreL ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "M is ${listNumP2[12]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "M score is $scoreM ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "N is ${listNumP2[13]} ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
-        ),
-        Text(
-          "N score is $scoreN ",
-          style: TextStyle(color: isPassed ? Colors.green : Colors.redAccent),
+          scoreN >= lim ? "N score is $scoreN " : "",
         ),
       ],
     );
