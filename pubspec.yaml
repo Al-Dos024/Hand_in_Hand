@@ -64,6 +64,14 @@ flutter:
     - assets/img/1stADHD.jpg
     - assets/img/adhdMain.jpg
     - assets/img/dvsf.mp4
+    - assets/img/intro.mp4
+    - assets/img/man.jpg
+    - assets/img/background.png
+    - assets/img/registerbackground.png
+    - assets/img/kid.png
+    - assets/img/onboard1.jpg
+    - assets/img/onborad2.jpg
+    - assets/img/onborad3.jpg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

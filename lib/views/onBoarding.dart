@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:isef_project/views/login.dart';
 import 'package:isef_project/widgets/build_page.dart';
 import 'package:isef_project/widgets/last_button_onboard.dart';
+
+import '../widgets/custom_button.dart';
 
 class OnBorading extends StatefulWidget {
   const OnBorading({super.key});
@@ -32,26 +35,41 @@ class _OnBoradingState extends State<OnBorading> {
               children: [
                 buildPage(
                     color: Colors.white,
-                    urlImage: 'assets/img/dvsf.mp4',
-                    title: "Welcome a board",
+                    urlImage: 'assets/img/kid.png',
+                    title: "M Hand in Hand",
                     subtitle:
-                        "ADHD is one of the most common neurodevelopmental disorders of childhood. It is usually first diagnosed in childhood and often lasts into adulthood. Children with ADHD may have trouble paying attention, controlling impulsive behaviors (may act without thinking about what the result will be), or be overly active. "),
+                        " هو تطبيق مصمم لتمكين الأفراد والعائلات المتأثرين باضطراب فرط الحركة ونقص الانتباه"
+                        ''
+                        " فهو يجمع بين ثلاث وظائف رئيسية"
+                        '\n'
+                        "اولا تشخيص اضطراب فرط الحركة وقلة الانتباه"
+                        "  "
+                        "ثانيا موارد عن اضطراب فرط الحركة ونقص الانتباه: موضوعات زي الأعراض والأنواع واستراتيجيات الإدارة وآليات التكيف. ممكن يساعد المستخدمين على فهم أنفسهم وتجاربهم بشكل أفضل."),
+                buildPage(
+                  color: Colors.white,
+                  urlImage: 'assets/img/onboard1.jpg',
+                  title: "What The App Do?",
+                  subtitle:
+                      "ثالثا أدوات العلاج السلوكي: يوفر التطبيق إمكانية الوصول إلى التمارين والتقنيات القائمة على الأدلة لمساعدة المستخدمين على إدارة الأعراض وتطوير المهارات الحياتية و تحفيز وتعزيز السلوكيات الإيجابية",
+                ),
                 buildPage(
                     color: Colors.white,
-                    urlImage: 'assets/img/1stADHD.jpg',
-                    title: "What The App Do?",
-                    subtitle:
-                        "Many people do not know that they have ADHD, and many people continue to live without knowing that they have it, thinking of themselves as a failure due to lack of knowledge about the disorder or lack of correct knowledge and aslo the parents. They are different, but with characteristics and beautiful people and therefore a different lifestyle and. "),
-                buildPage(
-                    color: Colors.white,
-                    urlImage: 'assets/img/adhdMain.jpg',
+                    urlImage: 'assets/img/onborad3.jpg',
                     title: "Shall we begin ?",
                     subtitle:
-                        "They might disrupt their family unit. And they may have difficulty interacting appropriately with peers and the adults that they come into contact with on a day to day basis he behavior of children with ADHD often results in serious disturbances in their relationships with parents, teachers, peers, and siblings, as well as academic problems."),
+                        "يهدف أيضًا إلى المساهمة في نشر الوعي باضطراب فرط الحركة ونقص الانتباه على نطاق أوسع بشكل عام،"
+                        '\n'
+                        "  M Hand in Hand بيهدف لحل تعقيدات اضطراب فرط الحركة ونقص الانتباه"),
               ]),
         ),
         bottomSheet: isLastpage
-            ? const LastButtonOnBoard()
+            ? CustomButton(
+                text: "Get Started",
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Login()));
+                },
+              )
             : AnyButtonOnBoard(controller: controller));
   }
 }

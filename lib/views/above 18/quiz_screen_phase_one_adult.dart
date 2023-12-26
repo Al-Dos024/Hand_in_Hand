@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/above%2018/quiz_screen_phase_two_adult.dart';
-import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 
 class QuizScreenPhaseOneAdult extends StatefulWidget {
@@ -27,7 +26,6 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 5, 50, 80),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child:
@@ -35,7 +33,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
           const Text(
             "Phase One",
             style: TextStyle(
-              color: Colors.white,
+              color: Color(0xff828282),
               fontSize: 24,
             ),
           ),
@@ -55,7 +53,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
         Text(
           "Question ${currentQuestionIndex + 1}/${questionList.length.toString()}",
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -66,7 +64,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
           width: double.infinity,
           padding: const EdgeInsets.all(32),
           decoration: BoxDecoration(
-            color: Colors.orangeAccent,
+            color: const Color.fromARGB(255, 234, 234, 234),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Center(
@@ -74,7 +72,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
               questionList[currentQuestionIndex].questionText,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -106,7 +104,8 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: isSelected ? Colors.white : Colors.black,
-          backgroundColor: isSelected ? Colors.teal : Colors.white,
+          backgroundColor:
+              isSelected ? const Color(0xffC972B1) : const Color(0xffE8E8F6),
           shape: const StadiumBorder(),
         ),
         onPressed: () {
@@ -133,7 +132,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: const Color(0xff6A74D5),
           shape: const StadiumBorder(),
         ),
         onPressed: () {
@@ -189,24 +188,27 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
         children: [
           Text(
             "$mTitle Movment score $mScore",
-            style:
-                TextStyle(color: mIsPassed ? Colors.green : Colors.redAccent),
+            style: TextStyle(
+                color: mIsPassed ? Colors.green : Colors.redAccent,
+                fontSize: 20),
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
             "$iTitle Rush score $iScore",
-            style:
-                TextStyle(color: iIsPassed ? Colors.green : Colors.redAccent),
+            style: TextStyle(
+                color: iIsPassed ? Colors.green : Colors.redAccent,
+                fontSize: 20),
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
             "$dTitle attention score $dScore",
-            style:
-                TextStyle(color: dIsPassed ? Colors.green : Colors.redAccent),
+            style: TextStyle(
+                color: dIsPassed ? Colors.green : Colors.redAccent,
+                fontSize: 20),
           ),
         ],
       ),
@@ -225,10 +227,7 @@ class _QuizScreenPhaseOneAdultState extends State<QuizScreenPhaseOneAdult> {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MoreScreen()));
+                    Navigator.pop(context);
 
                     setState(() {
                       currentQuestionIndex = 0;

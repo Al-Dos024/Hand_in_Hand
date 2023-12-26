@@ -15,7 +15,7 @@ Widget buildPage({
           Image.asset(
             urlImage,
             fit: BoxFit.cover,
-            width: double.infinity,
+            width: 300,
           ),
           const SizedBox(
             height: 32,
@@ -32,6 +32,7 @@ Widget buildPage({
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             child: Text(
               subtitle,
+              textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.black, fontSize: 18),
             ),
           )

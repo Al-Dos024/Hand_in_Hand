@@ -9,20 +9,24 @@ class CustomButton extends StatelessWidget {
   VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: kPrimryColor,
-          borderRadius: BorderRadius.circular(25),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: kPrimryColor,
+            borderRadius: BorderRadius.circular(25),
+          ),
+          width: double.infinity,
+          height: 60,
+          child: Center(
+              child: Text(
+            text,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          )),
         ),
-        width: double.infinity,
-        height: 60,
-        child: Center(
-            child: Text(
-          text,
-          style: const TextStyle(color: Colors.white),
-        )),
       ),
     );
   }

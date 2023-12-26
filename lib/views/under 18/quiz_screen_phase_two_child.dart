@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:isef_project/Dataset/female/phase2child12_14F.dart';
 import 'package:isef_project/Dataset/female/phase2child15_17F.dart';
@@ -39,7 +41,6 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 5, 50, 80),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child:
@@ -47,7 +48,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           const Text(
             "Phase Two",
             style: TextStyle(
-              color: Colors.white,
+              color: Color(0xff828282),
               fontSize: 24,
             ),
           ),
@@ -67,7 +68,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
         Text(
           "Question ${currentQuestionIndex + 1}/${questionList.length.toString()}",
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -78,7 +79,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
           width: double.infinity,
           padding: const EdgeInsets.all(32),
           decoration: BoxDecoration(
-            color: Colors.orangeAccent,
+            color: const Color.fromARGB(255, 234, 234, 234),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Center(
@@ -86,7 +87,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
               questionList[currentQuestionIndex].questionText,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -118,7 +119,8 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: isSelected ? Colors.white : Colors.black,
-          backgroundColor: isSelected ? Colors.teal : Colors.white,
+          backgroundColor:
+              isSelected ? const Color(0xffC972B1) : const Color(0xffE8E8F6),
           shape: const StadiumBorder(),
         ),
         onPressed: () {
@@ -145,7 +147,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: const Color(0xff6A74D5),
           shape: const StadiumBorder(),
         ),
         onPressed: () {
@@ -326,21 +328,9 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                       });
                     },
                     child: const Text("Return to phases")),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MoreScreen()));
-
-                      setState(() {
-                        currentQuestionIndex = 0;
-                        score = 0;
-                        selectedAnswer = null;
-                        resetnumandScore();
-                      });
-                    },
-                    child: const Text("Go To phase 3?")),
+                const TextButton(
+                    onPressed: null,
+                    child: Text("Go To phase 3? (soon, stay turned)")),
                 const SizedBox(
                   height: 10,
                 ),

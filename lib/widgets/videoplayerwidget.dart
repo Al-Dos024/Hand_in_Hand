@@ -10,17 +10,17 @@ class VideoPlayerWidget extends StatefulWidget {
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
-  late VideoPlayerController _videoPlayerController;
+  late VideoPlayerController videoPlayerController;
   late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = VideoPlayerController.asset(widget.videoUrl);
-    _initializeVideoPlayerFuture =
-        _videoPlayerController.initialize().then((_) {
-      _videoPlayerController.play();
-      _videoPlayerController.setLooping(true);
+    videoPlayerController = VideoPlayerController.asset(widget.videoUrl);
+    _initializeVideoPlayerFuture = videoPlayerController.initialize().then((_) {
+      videoPlayerController.play();
+      videoPlayerController.setVolume(0);
+      videoPlayerController.setLooping(true);
       setState(() {});
     });
   }
@@ -28,7 +28,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   @override
   void dispose() {
     super.dispose();
-    _videoPlayerController.dispose();
+    videoPlayerController.dispose();
   }
 
   @override
@@ -38,8 +38,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return AspectRatio(
-              aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: VideoPlayer(_videoPlayerController),
+              aspectRatio: videoPlayerController.value.aspectRatio,
+              child: VideoPlayer(videoPlayerController),
             );
           } else {
             return const Center(

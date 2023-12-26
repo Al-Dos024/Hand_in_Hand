@@ -13,11 +13,10 @@ class BigCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(22.0),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
-        margin: const EdgeInsets.all(10),
-        height: 180,
-        width: 360,
+        height: 80,
+        width: 180,
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
@@ -28,7 +27,7 @@ class BigCustomButton extends StatelessWidget {
           ),
           child: Text(
             buttonName,
-            style: const TextStyle(fontSize: 25),
+            style: const TextStyle(fontSize: 25, color: Colors.white),
           ),
         ),
       ),

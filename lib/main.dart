@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/firebase_options.dart';
+import 'package:isef_project/views/onBoarding.dart';
 import 'package:isef_project/views/onBoardingOnePage.dart';
 
 void main() async {
@@ -17,7 +18,8 @@ class ISEF extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OnBoradOnePage(),
+      debugShowCheckedModeBanner: false,
+      home: OnBorading(),
     );
   }
 }

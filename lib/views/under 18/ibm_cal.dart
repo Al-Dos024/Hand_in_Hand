@@ -17,7 +17,7 @@ class _BMIScreenState extends State<BMIScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kPrimryColor,
+        backgroundColor: Colors.white,
         title: const Text("info about the kid"),
         centerTitle: true,
       ),
@@ -37,7 +37,9 @@ class _BMIScreenState extends State<BMIScreen> {
                     height: 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: isMale ? Colors.blue : Colors.grey,
+                      color: isMale
+                          ? Colors.blue
+                          : const Color.fromARGB(255, 196, 198, 237),
                     ),
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +74,9 @@ class _BMIScreenState extends State<BMIScreen> {
                     height: 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: isMale ? Colors.grey : Colors.pinkAccent,
+                      color: isMale
+                          ? const Color.fromARGB(255, 196, 198, 237)
+                          : Colors.pinkAccent,
                     ),
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +114,7 @@ class _BMIScreenState extends State<BMIScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Colors.grey,
+                      color: const Color.fromARGB(255, 249, 252, 255),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -133,6 +137,7 @@ class _BMIScreenState extends State<BMIScreen> {
                           children: [
                             FloatingActionButton(
                               heroTag: "btn1",
+                              backgroundColor: kPrimryColor,
                               onPressed: () {
                                 setState(() {
                                   if (age < 17) {
@@ -141,10 +146,14 @@ class _BMIScreenState extends State<BMIScreen> {
                                 });
                               },
                               mini: true,
-                              child: const Icon(Icons.add),
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
                             FloatingActionButton(
                               heroTag: "btn2",
+                              backgroundColor: kPrimryColor,
                               onPressed: () {
                                 setState(() {
                                   if (age > 3) {
@@ -153,7 +162,10 @@ class _BMIScreenState extends State<BMIScreen> {
                                 });
                               },
                               mini: true,
-                              child: const Icon(Icons.remove),
+                              child: const Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
                             )
                           ],
                         )
