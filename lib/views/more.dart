@@ -1,11 +1,8 @@
 // ignore_for_file: file_names
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/above%2018/quiz_screen_phase_two_adult.dart';
 import 'package:isef_project/views/login.dart';
-import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/big_custom_button.dart';
 import 'package:isef_project/widgets/videoplayerwidget.dart';
 import 'under 18/quiz_screen_phase_one_child.dart';
