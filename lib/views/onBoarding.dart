@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/login.dart';
+import 'package:isef_project/views/more.dart';
 import 'package:isef_project/widgets/build_page.dart';
 import 'package:isef_project/widgets/last_button_onboard.dart';
 
@@ -66,6 +68,14 @@ class _OnBoradingState extends State<OnBorading> {
             ? CustomButton(
                 text: "Get Started",
                 onTap: () {
+                  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+                    if (user != null) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MoreScreen()));
+                    }
+                  });
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Login()));
                 },

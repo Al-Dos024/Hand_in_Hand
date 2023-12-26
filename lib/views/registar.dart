@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously, prefer_const_constructors_in_immutables, avoid_print, file_names
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/login.dart';
 import 'package:isef_project/views/more.dart';
@@ -16,6 +17,14 @@ class RegisterPage extends StatefulWidget {
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
+
+final nameController = TextEditingController();
+final ageController = TextEditingController();
+final databaseRef = FirebaseDatabase.instance.ref("users");
+final FirebaseAuth auth = FirebaseAuth.instance;
+
+final User? user = auth.currentUser;
+final uid = user!.uid;
 
 class _RegisterPageState extends State<RegisterPage> {
   String? email;
@@ -66,6 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 25,
                   ),
                   CustomTextFromFieldRegister(
+                    controller: nameController,
                     fieldText: "Name",
                     icon: Icons.face,
                     onChange: (dataN) {
@@ -76,6 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 30,
                   ),
                   CustomTextFromFieldRegister(
+                    controller: ageController,
                     fieldText: "Age",
                     icon: Icons.numbers,
                     onChange: (dataA) {
@@ -112,13 +123,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            color: Color(0xff6A74D5),
+                          borderSide: const BorderSide(
+                            color: const Color(0xff6A74D5),
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xff6A74D5),
                             width: 2.0,
                           ),
@@ -181,6 +192,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           setState(() {});
                           try {
                             await registerUserAccount();
+                            databaseRef.child(uid).set(
+                              {
+                                'Name': nameController.text.toString(),
+                                'Age': ageController.text.toString(),
+                              },
+                            );
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(

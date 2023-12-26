@@ -3,6 +3,7 @@ import 'package:isef_project/constants.dart';
 import 'package:isef_project/models/get_quiz_phase_two_adult.dart';
 import 'package:isef_project/models/quiz_model.dart';
 import 'package:isef_project/views/more.dart';
+import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 
 class QuizScreenPhaseTwoAdult extends StatefulWidget {
@@ -231,9 +232,15 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
       }
       doneOnce = false;
     }
+    databaseRef.child(uid).child("phase two adult").set(
+      {
+        'A score': scoreA,
+        'B score': scoreB,
+      },
+    );
     return AlertDialog(
-      title: Text('scoreA is $scoreA , scoreB is $scoreB '),
-      content: const Text('Try Again Later'),
+      title: Center(child: Text('score A is $scoreA \n score B is $scoreB ')),
+      content: const Text('End of Phase 2 Adult'),
       actions: [
         Center(
           child: Column(

@@ -6,9 +6,11 @@ class CustomTextFromFieldRegister extends StatelessWidget {
       required this.fieldText,
       required this.icon,
       this.onChange,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.controller});
 
   final String fieldText;
+  final TextEditingController? controller;
   final IconData icon;
   final bool obscureText;
   final Function(String)? onChange;
@@ -25,6 +27,7 @@ class CustomTextFromFieldRegister extends StatelessWidget {
           return null;
         },
         onChanged: onChange,
+        controller: controller,
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(

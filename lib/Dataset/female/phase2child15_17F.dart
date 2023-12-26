@@ -429,3 +429,11 @@ void tNscore15_17F(int num) {
     scoreN = scoreNborad15_17[num];
   }
 }
+
+bool checkScore(int num) {
+  if (num >= 60) {
+    return true;
+  } else {
+    return false;
+  }
+}

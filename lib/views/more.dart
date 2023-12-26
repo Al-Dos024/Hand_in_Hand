@@ -1,7 +1,11 @@
 // ignore_for_file: file_names
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/above%2018/quiz_screen_phase_one_adult.dart';
+import 'package:isef_project/views/above%2018/quiz_screen_phase_two_adult.dart';
+import 'package:isef_project/views/login.dart';
+import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/big_custom_button.dart';
 import 'package:isef_project/widgets/videoplayerwidget.dart';
 import 'under 18/quiz_screen_phase_one_child.dart';
@@ -16,8 +20,20 @@ class MoreScreen extends StatefulWidget {
 class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
+    // if (Navigator.of(context).canPop()) {
+    //   FirebaseAuth.instance.signOut();
+    // }
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Login()));
+              },
+              icon: const Icon(Icons.logout))
+        ],
         backgroundColor: Colors.white,
         title: const Text("Phases"),
         centerTitle: true,
@@ -70,7 +86,7 @@ class _MoreScreenState extends State<MoreScreen> {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const QuizScreenPhaseOneAdult(),
+                          builder: (context) => const QuizScreenPhaseTwoAdult(),
                         ),
                       );
                     },
