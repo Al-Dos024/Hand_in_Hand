@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/more.dart';
+import 'package:isef_project/views/newMain.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field_login.dart';
@@ -27,6 +27,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async => false,
       child: ModalProgressHUD(
@@ -88,13 +89,13 @@ class _LoginState extends State<Login> {
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.white,
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.white,
                             ),
                           ),
@@ -145,7 +146,7 @@ class _LoginState extends State<Login> {
                       Container(
                         width: 200,
                         decoration: BoxDecoration(
-                          color: Color(0xff6A74D5),
+                          color: const Color(0xff6A74D5),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: MaterialButton(
@@ -161,7 +162,7 @@ class _LoginState extends State<Login> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const MoreScreen()));
+                                            const NewMainScreen()));
                               } on FirebaseAuthException catch (e) {
                                 isLoading = false;
                                 setState(() {});

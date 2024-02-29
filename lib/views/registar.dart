@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/login.dart';
-import 'package:isef_project/views/more.dart';
+import 'package:isef_project/views/newMain.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field_reg.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -201,7 +201,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const MoreScreen()));
+                                    builder: (context) =>
+                                        const NewMainScreen()));
                           } on FirebaseAuthException catch (ex) {
                             if (ex.code == 'weak-password') {
                               showSnackBar(context,

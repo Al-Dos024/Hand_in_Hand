@@ -7,14 +7,14 @@ import 'package:isef_project/widgets/big_custom_button.dart';
 import 'package:isef_project/widgets/videoplayerwidget.dart';
 import 'under 18/quiz_screen_phase_one_child.dart';
 
-class MoreScreen extends StatefulWidget {
-  const MoreScreen({super.key});
+class OldMainScreen extends StatefulWidget {
+  const OldMainScreen({super.key});
 
   @override
-  State<MoreScreen> createState() => _MoreScreenState();
+  State<OldMainScreen> createState() => _OldMainScreenState();
 }
 
-class _MoreScreenState extends State<MoreScreen> {
+class _OldMainScreenState extends State<OldMainScreen> {
   @override
   Widget build(BuildContext context) {
     // if (Navigator.of(context).canPop()) {

@@ -14,9 +14,9 @@ class BigCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 80,
-        width: 180,
+      child: SizedBox(
+        height: 100,
+        width: 250,
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(

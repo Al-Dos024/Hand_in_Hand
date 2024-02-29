@@ -11,7 +11,7 @@ import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
 import 'package:isef_project/Dataset/male/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
-import 'package:isef_project/views/more.dart';
+import 'package:isef_project/views/oldMain.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/a_advice.dart';
 import 'package:isef_project/widgets/b_advice.dart';
@@ -299,7 +299,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MoreScreen()));
+                              builder: (context) => const OldMainScreen()));
 
                       setState(() {
                         currentQuestionIndex = 0;
