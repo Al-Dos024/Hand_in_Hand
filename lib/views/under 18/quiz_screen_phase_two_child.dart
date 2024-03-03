@@ -10,6 +10,7 @@ import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
 import 'package:isef_project/Dataset/male/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
+import 'package:isef_project/views/info_of_letter.dart';
 import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/a_advice.dart';
@@ -311,6 +312,14 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                       });
                     },
                     child: const Text("Return to phases")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const InfoOfLetter()));
+                    },
+                    child: const Text("What the letter mean?")),
                 const TextButton(
                     onPressed: null,
                     child: Text("Go To phase 3? (soon, stay turned)")),
