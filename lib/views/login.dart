@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:isef_project/views/newMain.dart';
+import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/custom_text_from_field_login.dart';
@@ -162,7 +162,9 @@ class _LoginState extends State<Login> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const NewMainScreen()));
+                                            const MainScreen()));
+                                emailcontrollor.text = ' ';
+                                passwordcontrollor.text = ' ';
                               } on FirebaseAuthException catch (e) {
                                 isLoading = false;
                                 setState(() {});

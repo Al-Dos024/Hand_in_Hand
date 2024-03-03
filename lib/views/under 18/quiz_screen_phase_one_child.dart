@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isef_project/models/get_quiz_phase_one.dart';
 import 'package:isef_project/models/quiz_model.dart';
+import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/views/under%2018/ibm_cal.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
@@ -151,7 +152,7 @@ class _QuizScreenPhaseOneChildState extends State<QuizScreenPhaseOneChild> {
 
             if (isLastQuestion) {
               //display score
-              databaseRef.child(uid).child("phase one").set(
+              databaseRef.child(uid).child("phase one Child").set(
                 {
                   'phase one Movment score': mScore,
                   'phase one Rush score': iScore,
@@ -213,6 +214,7 @@ class _QuizScreenPhaseOneChildState extends State<QuizScreenPhaseOneChild> {
           const SizedBox(
             height: 10,
           ),
+          
           Text(
             "$dTitle attention score $dScore",
             style: TextStyle(
@@ -236,7 +238,10 @@ class _QuizScreenPhaseOneChildState extends State<QuizScreenPhaseOneChild> {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainScreen()));
 
                     setState(() {
                       currentQuestionIndex = 0;

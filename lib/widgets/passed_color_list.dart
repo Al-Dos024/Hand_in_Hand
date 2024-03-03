@@ -59,3 +59,49 @@ class PassedColorList extends StatelessWidget {
     );
   }
 }
+
+//  Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Text(
+//           scoreA >= lim ? "obstinacy score is $scoreA " : "",
+//         ),
+//         Text(
+//           scoreB >= lim ? "Lack of attention score is $scoreB " : "",
+//           style: const TextStyle(fontSize: 20),
+//         ),
+//         Text(
+//           scoreC >= lim ? "Hyperactivity score is $scoreC " : "",
+//         ),
+//         Text(
+//           scoreD >= lim ? "anxiety score is $scoreD " : "",
+//         ),
+//         Text(
+//           scoreE >= lim ? "Perfection score is $scoreE " : "",
+//         ),
+//         Text(
+//           scoreF >= lim ? "social score is $scoreF " : "",
+//         ),
+//         Text(
+//           scoreG >= lim ? "Physical score is $scoreG " : "",
+//         ),
+//         Text(scoreH >= lim ? "attention deficit score is $scoreH " : "",
+//             style: const TextStyle(fontSize: 20)),
+//         Text(scoreI >= lim ? "Arousal and impulsivity score is $scoreI " : "",
+//             style: const TextStyle(fontSize: 16)),
+//         Text(
+//           scoreJ >= lim ? "Passion score is $scoreJ " : "",
+//         ),
+//         Text(scoreK >= lim ? "General indicator  score is $scoreK " : "",
+//             style: const TextStyle(fontSize: 20)),
+//         Text(
+//           scoreL >= lim ? "DMS 5 score is $scoreL " : "",
+//         ),
+//         Text(scoreM >= lim ? "Hyperactivity DMS 5 score is $scoreM " : "",
+//             style: const TextStyle(fontSize: 15)),
+//         Text(scoreN >= lim ? "mixed DMS 5 score is $scoreN " : "",
+//             style: const TextStyle(fontSize: 20)),
+//       ],
+//     );
+//   }
+// }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isef_project/constants.dart';
 import 'package:isef_project/models/get_quiz_phase_two_adult.dart';
 import 'package:isef_project/models/quiz_model.dart';
-import 'package:isef_project/views/oldMain.dart';
+import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/custom_snackbar.dart';
 
@@ -250,7 +250,7 @@ class _QuizScreenPhaseTwoAdultState extends State<QuizScreenPhaseTwoAdult> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const OldMainScreen()));
+                            builder: (context) => const MainScreen()));
 
                     setState(() {
                       currentQuestionIndex = 0;

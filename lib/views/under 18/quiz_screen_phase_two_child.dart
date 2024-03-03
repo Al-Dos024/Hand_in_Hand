@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:isef_project/Dataset/female/phase2child12_14F.dart';
 import 'package:isef_project/Dataset/female/phase2child15_17F.dart';
@@ -11,7 +10,7 @@ import 'package:isef_project/Dataset/male/phase2child6_8M.dart';
 import 'package:isef_project/Dataset/male/phase2child9_11M.dart';
 import 'package:isef_project/models/get_quiz_phase_two_child.dart';
 import 'package:isef_project/models/quiz_model.dart';
-import 'package:isef_project/views/oldMain.dart';
+import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/views/registar.dart';
 import 'package:isef_project/widgets/a_advice.dart';
 import 'package:isef_project/widgets/b_advice.dart';
@@ -19,7 +18,6 @@ import 'package:isef_project/widgets/custom_snackbar.dart';
 import 'package:isef_project/widgets/f_advice.dart';
 import 'package:isef_project/widgets/passed_color_list.dart';
 import 'package:isef_project/widgets/phase2list.dart';
-
 import '../../Dataset/female/phase2child9_11F.dart';
 import '../../Dataset/male/phase2child12_14M.dart';
 
@@ -225,28 +223,32 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
       all15_17FunctionF();
       print('in 15 to 17, female');
     }
-    databaseRef.child(uid).child("phase two").set(
+    databaseRef.child(uid).child("phase two Child").set(
       {
-        'A score': scoreA,
-        'B score': scoreB,
-        'C score': scoreC,
-        'D score': scoreD,
-        'E score': scoreE,
-        'F score': scoreF,
-        'G score': scoreG,
-        'H score': scoreH,
-        'I score': scoreI,
-        'J score': scoreJ,
-        'K score': scoreK,
-        'L score': scoreL,
-        'M score': scoreM,
-        'N score': scoreN,
+        'obstinacy score': scoreA,
+        'Lack of attention score': scoreB,
+        'Hyperactivity score': scoreC,
+        'anxiety score': scoreD,
+        'Perfection score': scoreE,
+        'social problems score': scoreF,
+        'Physical problems score': scoreG,
+        'attention deficit score': scoreH,
+        'Arousal and impulsivity score': scoreI,
+        'Passion score': scoreJ,
+        'General indicator score': scoreK,
+        'DMS 5 score': scoreL,
+        'Hyperactivity DMS 5 score': scoreM,
+        'mixed DMS 5 score': scoreN,
       },
     );
     return SingleChildScrollView(
       child: AlertDialog(
         title: PassedColorList(isPassed: isPassed),
-        content: const Text('You have passed the phase one'),
+        content: const Center(
+            child: Text(
+          'You have passed the phase two',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        )),
         actions: [
           Center(
             child: Column(
@@ -299,7 +301,7 @@ class _QuizScreenPhaseTwoChildState extends State<QuizScreenPhaseTwoChild> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OldMainScreen()));
+                              builder: (context) => const MainScreen()));
 
                       setState(() {
                         currentQuestionIndex = 0;

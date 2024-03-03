@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:isef_project/views/login.dart';
-import 'package:isef_project/views/newMain.dart';
+import 'package:isef_project/views/mainpage.dart';
 import 'package:isef_project/widgets/build_page.dart';
 import 'package:isef_project/widgets/last_button_onboard.dart';
 
@@ -71,7 +73,7 @@ class _OnBoradingState extends State<OnBorading> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const NewMainScreen()));
+                              builder: (context) => const MainScreen()));
                     }
                   });
                   Navigator.push(context,

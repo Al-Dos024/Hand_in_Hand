@@ -4,7 +4,7 @@ List<Question> getQuestionsPhaseOne() {
   List<Question> list = [];
 
   list.add(Question(
-    "اولا : اساله عن كثره الحركه \n صوته عاليا",
+    "اولا : اساله عن كثره الحركه \n صوت عالي",
     [
       Answer("لا", 0),
       Answer("أحياناً", 1),
