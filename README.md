@@ -1,6 +1,8 @@
 # Hand in Hand
 A new Flutter App that used to questioner about the ADHD.
 
+![WhatsApp Image 2024-03-04 at 14 29 12_6883ad50](https://github.com/AlDos024/Hand_in_Hand/assets/106039568/c3a4de95-3cd5-43c7-8a72-d2a17987880e)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
