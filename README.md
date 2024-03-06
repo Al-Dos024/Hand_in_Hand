@@ -15,7 +15,7 @@ But it's normal for little kids to be distracted, restless, impatient, or impuls
 <p>now its come this App <br> the app have 2 catagory : one for the Adult and for the kids<br> every catagory have 2 phases.<br> but we will discess later.</p>
 
 # The UI of the App
-## onBoarding Screen
+## on boarding
 
 firstly we have the onboarding screen , it have 3 pages every page talk about ADHD with little details:
 
@@ -28,7 +28,7 @@ you can move it by 3 wayes:
 - by next and skip button
 - by the points in the buttons
 - 
-## Login & Register Screen
+## Login & Register 
 
 <img width="250" src="https://github.com/AlDos024/Hand_in_Hand/assets/106039568/8358bda6-a051-49f2-ad4f-26d053a54c44">
 <img width="250" src="https://github.com/AlDos024/Hand_in_Hand/assets/106039568/10721751-d9fd-499d-acb3-aa3bc6cb2336">
@@ -42,7 +42,7 @@ you can move it by 3 wayes:
 <img src = 'https://github.com/AlDos024/Hand_in_Hand/assets/106039568/1fce4f88-c590-4c24-a655-708ff472029d'>
 
 
-## MainPage screen
+## Main page 
 
 <img width="250" src="https://github.com/AlDos024/Hand_in_Hand/assets/106039568/8f3f4351-85ae-4089-aadd-01076b73bb2f">
 <img width="250" src="https://github.com/AlDos024/Hand_in_Hand/assets/106039568/e9dde43b-f7ba-44a8-bf0d-7708bd072be1">
